@@ -1,0 +1,57 @@
+[
+  {
+    "id": "mock-onion-1kg",
+    "name": "Onion",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 45,
+    "is_veg": true,
+    "aliases": ["pyaaz", "kanda", "ulli"]
+  },
+  {
+    "id": "mock-tomato-500g",
+    "name": "Tomato",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 35,
+    "is_veg": true,
+    "aliases": ["tamatar"]
+  },
+  {
+    "id": "mock-turmeric-powder-100g",
+    "name": "Turmeric Powder",
+    "brand": "MDH",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 60,
+    "is_veg": true,
+    "aliases": ["haldi", "manjal"]
+  },
+  {
+    "id": "mock-cumin-seeds-100g",
+    "name": "Cumin Seeds",
+    "brand": "Tata Sampann",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 75,
+    "is_veg": true,
+    "aliases": ["jeera", "jeera seeds", "zeera"]
+  },
+  {
+    "id": "mock-coriander-powder-100g",
+    "name": "Coriander Powder",
+    "brand": "Everest",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 55,
+    "is_veg": true,
+    "aliases": ["dhania powder", "kothamalli powder"]
+  }
+]
