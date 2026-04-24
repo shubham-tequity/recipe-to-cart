@@ -1,6 +1,6 @@
-import Fuse from "fuse.js";
 import type { Ingredient } from "@/lib/recipe/types";
 import type { InstamartClient, Sku, CartItem } from "@/lib/instamart";
+import { tokenize } from "@/lib/text/tokenize";
 
 export type MatchConfidence = "high" | "medium" | "low";
 
@@ -16,11 +16,15 @@ export type MatchResult = {
 };
 
 /**
- * For each ingredient, ask the catalog for candidates, then fuzzy-pick the
- * best SKU and decide how many units of that pack to add.
+ * For each ingredient, ask the catalog for candidates and pick the first one
+ * (the client returns results already ranked by relevance — primary-noun
+ * tiebroken for the mock, embedding/BM25 for the real MCP). Then decide how
+ * many units of that pack to add.
  *
- * When we swap to the real Swiggy MCP, searchProducts is already the right
- * surface — this whole file is intentionally client-agnostic.
+ * We don't re-rank with Fuse here anymore — fuzzy re-ranking of a ranker's
+ * output was demoting correct matches like "Saffola Soyabean Oil" in favor
+ * of "Vegetable Spring Rolls" whenever one modifier word appeared earlier
+ * in a wrong SKU's name.
  */
 export async function matchIngredientsToSkus(
   ingredients: Ingredient[],
@@ -30,10 +34,10 @@ export async function matchIngredientsToSkus(
 
   for (const ing of ingredients) {
     // Search by canonical name first; fall back to original (often regional) name.
-    const primary = await client.searchProducts(ing.name, { limit: 20 });
+    const primary = await client.searchProducts(ing.name, { limit: 5 });
     const secondary =
       primary.length === 0 && ing.original_name !== ing.name
-        ? await client.searchProducts(ing.original_name, { limit: 20 })
+        ? await client.searchProducts(ing.original_name, { limit: 5 })
         : [];
     const candidates = primary.length > 0 ? primary : secondary;
 
@@ -49,20 +53,18 @@ export async function matchIngredientsToSkus(
       continue;
     }
 
-    const fuse = new Fuse(candidates, {
-      keys: ["name", "brand", "aliases"],
-      threshold: 0.4,
-      includeScore: true,
-    });
-    const scored = fuse.search(ing.name);
-    const best =
-      scored[0]?.item ?? candidates[0];
-    const alternatives = scored
-      .slice(1, 4)
-      .map((r) => r.item)
-      .filter((s) => s.id !== best.id);
+    const best = candidates[0];
+    const alternatives = candidates.slice(1, 4);
 
-    const { qty, confidence, note } = resolveQuantity(ing, best);
+    const nameConf = computeNameConfidence(ing.name, best);
+    const { qty, confidence: qtyConf, note } = resolveQuantity(ing, best);
+
+    // Overall confidence is the weaker of "is this the right product" and
+    // "will the user get the right amount". A great name match with a shaky
+    // pack conversion is still only medium; a perfect quantity on the wrong
+    // product is low.
+    const confidence = weakerOf(nameConf, qtyConf);
+
     results.push({
       ingredient: ing,
       best_match: best,
@@ -86,6 +88,34 @@ export function matchResultsToCartItems(results: MatchResult[]): CartItem[] {
       sku_id: r.best_match.id,
       quantity: r.quantity_ordered,
     }));
+}
+
+/**
+ * Name-match confidence from shared-token overlap between query and SKU text.
+ *
+ * Thresholds scale with query length so a single-word query like "oil" can
+ * still earn "high" — otherwise any one-word ingredient would be permanently
+ * stuck at medium.
+ */
+function computeNameConfidence(queryName: string, sku: Sku): MatchConfidence {
+  const qTokens = new Set(tokenize(queryName));
+  const sTokens = new Set(
+    tokenize(`${sku.name} ${sku.brand} ${sku.aliases.join(" ")}`)
+  );
+
+  let overlap = 0;
+  for (const t of qTokens) if (sTokens.has(t)) overlap++;
+
+  const required = Math.min(qTokens.size, 2);
+  if (qTokens.size === 0) return "low";
+  if (overlap >= required) return "high";
+  if (overlap >= 1) return "medium";
+  return "low";
+}
+
+function weakerOf(a: MatchConfidence, b: MatchConfidence): MatchConfidence {
+  const rank: Record<MatchConfidence, number> = { low: 0, medium: 1, high: 2 };
+  return rank[a] < rank[b] ? a : b;
 }
 
 function resolveQuantity(

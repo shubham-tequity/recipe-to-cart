@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { toast } from "sonner";
 import {
   ArrowRight,
   Check,
+  Clock,
   ExternalLink,
   ShoppingCart,
   Sparkles,
@@ -18,6 +19,7 @@ import { Input } from "@/components/ui/input";
 import type { Recipe, Ingredient } from "@/lib/recipe/types";
 import type { MatchResult } from "@/lib/matching/match";
 import type { Cart, Sku, Category } from "@/lib/instamart/types";
+import { shouldShowOriginalName } from "@/lib/text/similarity";
 
 type Step = "scraping" | "extracting" | "matching" | "pricing";
 
@@ -25,7 +27,8 @@ type FlowState =
   | { status: "idle" }
   | { status: "loading"; step: Step; recipe?: Recipe; matches?: MatchResult[] }
   | { status: "done"; recipe: Recipe; matches: MatchResult[]; cart: Cart }
-  | { status: "error"; message: string };
+  | { status: "error"; message: string }
+  | { status: "rate_limited"; resetsAt: string };
 
 const STEPS: { key: Step; label: string }[] = [
   { key: "scraping", label: "Reading recipe" },
@@ -92,9 +95,18 @@ export function RecipeToCart() {
           servings: typeof servings === "number" ? servings : undefined,
         }),
       });
+      if (extractRes.status === 429) {
+        const err = (await extractRes.json().catch(() => null)) as {
+          resetsAt?: string;
+        } | null;
+        if (err?.resetsAt) {
+          setState({ status: "rate_limited", resetsAt: err.resetsAt });
+          return;
+        }
+      }
       if (!extractRes.ok) {
-        const err = await extractRes.json().catch(() => ({ error: "Extraction failed" }));
-        throw new Error(err.error ?? "Extraction failed");
+        const err = await extractRes.json().catch(() => ({ message: "Extraction failed" }));
+        throw new Error(err.message ?? err.error ?? "Extraction failed");
       }
       const { recipe } = (await extractRes.json()) as { recipe: Recipe };
 
@@ -163,13 +175,24 @@ export function RecipeToCart() {
         setUrl={setUrl}
         servings={servings}
         setServings={setServings}
-        disabled={loading}
+        disabled={loading || state.status === "rate_limited"}
         onSubmit={handleSubmit}
-        showReset={state.status === "done" || state.status === "error"}
+        showReset={
+          state.status === "done" ||
+          state.status === "error" ||
+          state.status === "rate_limited"
+        }
         onReset={reset}
       />
 
       {currentStepIndex >= 0 && <ProgressStepper currentIndex={currentStepIndex} />}
+
+      {state.status === "rate_limited" && (
+        <RateLimitCard
+          resetsAt={state.resetsAt}
+          onExpire={() => setState({ status: "idle" })}
+        />
+      )}
 
       {state.status === "error" && (
         <div className="rounded-xl border border-destructive/30 bg-destructive/[0.06] px-5 py-4 flex items-start gap-3">
@@ -210,14 +233,8 @@ export function RecipeToCart() {
 
 function HeroSection() {
   return (
-    <section className="flex flex-col items-center text-center gap-5 pt-10 sm:pt-16">
-      <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/50 backdrop-blur px-3 py-1 text-xs font-medium text-muted-foreground">
-        <span className="relative size-1.5 rounded-full bg-primary">
-          <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-75" />
-        </span>
-        Swiggy Builders Club · Prototype
-      </span>
-      <h1 className="text-5xl sm:text-6xl font-semibold tracking-tighter leading-[1.05] max-w-3xl">
+    <section className="flex flex-col items-center text-center gap-6 sm:gap-8 pt-8 sm:pt-14">
+      <h1 className="text-7xl sm:text-8xl lg:text-9xl font-semibold tracking-tighter leading-[0.95] max-w-5xl">
         Paste a recipe.
         <br />
         <span className="bg-gradient-to-br from-[#ff9a3d] via-[#fc8019] to-[#e46a2c] bg-clip-text text-transparent">
@@ -225,9 +242,13 @@ function HeroSection() {
         </span>
       </h1>
       <p className="max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-        Drop any cooking blog link or YouTube video — we&apos;ll extract every ingredient, match it
-        to Instamart products, and assemble your cart in seconds.
+        Drop a cooking blog link and we&apos;ll extract every ingredient, match it to Instamart
+        products, and assemble your cart in seconds.
       </p>
+      <span className="inline-flex items-center gap-2 text-xs font-medium text-muted-foreground/70">
+        <span className="size-1.5 rounded-full bg-primary/80" />
+        YouTube support · coming soon
+      </span>
     </section>
   );
 }
@@ -263,7 +284,7 @@ function UrlForm({
           <Input
             type="url"
             required
-            placeholder="https://hebbarskitchen.com/... or https://youtube.com/..."
+            placeholder="https://hebbarskitchen.com/... or any cooking blog URL"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             disabled={disabled}
@@ -367,6 +388,60 @@ function ProgressStepper({ currentIndex }: { currentIndex: number }) {
   );
 }
 
+/* ---------- Rate limit card ---------- */
+
+function RateLimitCard({
+  resetsAt,
+  onExpire,
+}: {
+  resetsAt: string;
+  onExpire: () => void;
+}) {
+  const [now, setNow] = useState(() => Date.now());
+  const onExpireRef = useRef(onExpire);
+
+  const resetMs = new Date(resetsAt).getTime();
+  const remainingMs = Math.max(0, resetMs - now);
+
+  useEffect(() => {
+    onExpireRef.current = onExpire;
+  }, [onExpire]);
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    if (remainingMs <= 0) onExpireRef.current();
+  }, [remainingMs]);
+
+  const minutes = Math.ceil(remainingMs / 60_000);
+  const seconds = Math.ceil(remainingMs / 1000);
+  const display =
+    remainingMs < 60_000 ? `${seconds}s` : `${minutes} minute${minutes === 1 ? "" : "s"}`;
+
+  const resetTime = new Date(resetMs).toLocaleTimeString(undefined, {
+    hour: "numeric",
+    minute: "2-digit",
+  });
+
+  return (
+    <div className="rounded-xl border border-primary/25 bg-primary/[0.04] px-5 py-4 flex items-start gap-3">
+      <Clock className="size-5 text-primary shrink-0 mt-0.5" />
+      <div className="flex-1">
+        <p className="font-medium text-sm">You&apos;ve hit the demo limit.</p>
+        <p className="text-sm text-muted-foreground mt-1">
+          This prototype is budget-capped. You can extract another recipe in{" "}
+          <span className="font-semibold text-foreground">{display}</span>
+          <span className="text-muted-foreground/80"> (resets at {resetTime})</span>.
+        </p>
+        <p className="text-xs text-muted-foreground/60 mt-3">10 recipes per hour · per IP</p>
+      </div>
+    </div>
+  );
+}
+
 /* ---------- Recipe header ---------- */
 
 function RecipeHeader({ recipe, url }: { recipe: Recipe; url: string }) {
@@ -435,7 +510,7 @@ function IngredientsSection({ ingredients }: { ingredients: Ingredient[] }) {
           return (
             <li key={i} className="py-3 flex items-baseline gap-3">
               <span className="font-medium text-[15px]">{ing.name}</span>
-              {ing.original_name !== ing.name && (
+              {shouldShowOriginalName(ing.name, ing.original_name) && (
                 <span className="text-xs text-muted-foreground italic truncate">
                   {ing.original_name}
                 </span>

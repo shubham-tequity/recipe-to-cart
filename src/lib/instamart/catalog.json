@@ -2391,7 +2391,7 @@
     "id": "condiments-patanjali-red-chili-powder-200g-14",
     "name": "Red Chili Powder",
     "brand": "Patanjali",
-    "category": "condiments",
+    "category": "spices",
     "pack_size": 200,
     "pack_unit": "g",
     "mrp": 62,
@@ -2968,6 +2968,152 @@
       "Good Day Cookie",
       "almond biscuit",
       "गुड डे"
+    ]
+  },
+  {
+    "id": "dry-goods-nutraj-magaz-watermelon-seeds-100g-12",
+    "name": "Magaz (Watermelon Seeds)",
+    "brand": "Nutraj",
+    "category": "dry-goods",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 180,
+    "is_veg": true,
+    "aliases": [
+      "magaz",
+      "melon seeds",
+      "watermelon seeds",
+      "kharbuja magaz",
+      "मगज"
+    ]
+  },
+  {
+    "id": "condiments-dabur-ginger-garlic-paste-200g-15",
+    "name": "Ginger Garlic Paste",
+    "brand": "Dabur",
+    "category": "condiments",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 75,
+    "is_veg": true,
+    "aliases": [
+      "ginger-garlic paste",
+      "adrak lehsun paste",
+      "GG paste",
+      "अदरक लहसुन पेस्ट"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-french-beans-250g-21",
+    "name": "French Beans",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 250,
+    "pack_unit": "g",
+    "mrp": 30,
+    "is_veg": true,
+    "aliases": [
+      "french bean",
+      "green bean",
+      "haricot vert",
+      "farasbi",
+      "फ्रेंच बीन्स"
+    ]
+  },
+  {
+    "id": "frozen-safal-green-peas-frozen-500g-6",
+    "name": "Green Peas (Frozen)",
+    "brand": "Safal",
+    "category": "frozen",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 110,
+    "is_veg": true,
+    "aliases": [
+      "matar",
+      "frozen peas",
+      "hara matar",
+      "हरा मटर"
+    ]
+  },
+  {
+    "id": "spices-catch-caraway-seeds-50g-34",
+    "name": "Caraway Seeds (Shahi Jeera)",
+    "brand": "Catch",
+    "category": "spices",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 95,
+    "is_veg": true,
+    "aliases": [
+      "shahi jeera",
+      "black caraway",
+      "kala jeera",
+      "शाही जीरा"
+    ]
+  },
+  {
+    "id": "spices-everest-star-anise-50g-35",
+    "name": "Star Anise",
+    "brand": "Everest",
+    "category": "spices",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 120,
+    "is_veg": true,
+    "aliases": [
+      "chakri phool",
+      "badiyan",
+      "anasphal",
+      "चक्र फूल"
+    ]
+  },
+  {
+    "id": "spices-mdh-mace-javitri-25g-36",
+    "name": "Mace (Javitri)",
+    "brand": "MDH",
+    "category": "spices",
+    "pack_size": 25,
+    "pack_unit": "g",
+    "mrp": 150,
+    "is_veg": true,
+    "aliases": [
+      "javitri",
+      "jaipatri",
+      "javentri",
+      "जावित्री"
+    ]
+  },
+  {
+    "id": "spices-aashirvaad-nutmeg-jaiphal-50g-37",
+    "name": "Nutmeg (Jaiphal)",
+    "brand": "Aashirvaad",
+    "category": "spices",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 180,
+    "is_veg": true,
+    "aliases": [
+      "jaiphal",
+      "jaayphal",
+      "myristica",
+      "जायफल"
+    ]
+  },
+  {
+    "id": "spices-everest-stone-flower-dagad-phool-25g-38",
+    "name": "Stone Flower (Dagad Phool)",
+    "brand": "Everest",
+    "category": "spices",
+    "pack_size": 25,
+    "pack_unit": "g",
+    "mrp": 130,
+    "is_veg": true,
+    "aliases": [
+      "dagad phool",
+      "kalpasi",
+      "patthar ke phool",
+      "पत्थर के फूल"
     ]
   }
 ]

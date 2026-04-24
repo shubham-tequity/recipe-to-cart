@@ -129,4 +129,4 @@ That's it. Set `AI_GATEWAY_API_KEY` in the Vercel project settings and the previ
 
 ---
 
-Built by [Tequity](https://tequity.tech) for [Swiggy Builders Club](https://mcp.swiggy.com/builders/).
+Built by [Shubham Tequity](https://tequity.tech) for [Swiggy Builders Club](https://mcp.swiggy.com/builders/).
