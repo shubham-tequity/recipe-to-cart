@@ -2,9 +2,13 @@
 
 **Paste a recipe. Get the cart.**
 
-Drop any cooking blog link or YouTube video into Recipe-to-Cart and get a ready-to-checkout Swiggy Instamart cart — every ingredient extracted, quantities normalized, and matched to real products in seconds.
+Drop a cooking blog link into Recipe-to-Cart and get a ready-to-checkout Swiggy Instamart cart — every ingredient extracted, quantities normalized, and matched to real products in seconds.
 
-Built for the [Swiggy Builders Club MCP program](https://mcp.swiggy.com/builders/) by [Tequity](https://tequity.tech).
+**Live:** [recipe-to-cart-alpha.vercel.app](https://recipe-to-cart-alpha.vercel.app)
+
+Built for the [Swiggy Builders Club MCP program](https://mcp.swiggy.com/builders/) by [Shubham Tequity](https://tequity.tech).
+
+> YouTube video support is disabled in production — YouTube blocks transcript fetches from datacenter IPs. The path exists in `src/lib/recipe/scrape.ts` and works locally; we'll re-enable it once we route YouTube fetches through a residential proxy.
 
 ---
 
@@ -18,13 +22,13 @@ Recipe-to-Cart turns that flow into **one URL → one-click cart.**
 
 ```
   ┌─────────────────┐
-  │   Recipe URL    │   Hebbar's Kitchen, Archana's, any blog, or YouTube
+  │   Recipe URL    │   Hebbar's Kitchen, Archana's, IndianHealthyRecipes,
+  │                 │   any recipe blog (YouTube: coming soon)
   └────────┬────────┘
            │
            ▼
   ┌─────────────────┐
-  │    Scrape       │   schema.org Recipe JSON-LD, or HTML fallback,
-  │                 │   or YouTube captions via oEmbed + youtube-transcript
+  │    Scrape       │   schema.org Recipe JSON-LD, or HTML fallback
   └────────┬────────┘
            │
            ▼
@@ -34,12 +38,14 @@ Recipe-to-Cart turns that flow into **one URL → one-click cart.**
   │                 │     haldi → turmeric powder
   │                 │     dhania → coriander
   │                 │     jeera → cumin seeds
+  │                 │   Then normalize → canonicalize → filter → dedupe
   └────────┬────────┘
            │
            ▼
   ┌─────────────────┐
-  │  Match to SKU   │   Fuzzy search (fuse.js) over the catalog,
-  │                 │   unit conversion, pack-size rounding
+  │  Match to SKU   │   IDF-weighted token search over the catalog,
+  │                 │   primary-noun tiebreakers,
+  │                 │   unit conversion + pack-size rounding
   └────────┬────────┘
            │
            ▼
@@ -51,16 +57,19 @@ Recipe-to-Cart turns that flow into **one URL → one-click cart.**
 
 ## Status
 
-**Prototype.** Runs end-to-end against a mock Instamart catalog, behind an `InstamartClient` interface. Applied for Swiggy Builders Club MCP access — when granted, the swap to the real client is a one-file change.
+**Prototype, deployed.** Runs end-to-end against a mock Instamart catalog behind an `InstamartClient` interface. Applied for Swiggy Builders Club MCP access — when granted, the swap to the real client is a one-file change.
 
-- [x] Scaffold & theme (Swiggy × Tequity hybrid, dark-first)
-- [x] Blog + YouTube scraping
+- [x] Scaffold & theme (Swiggy × Tequity hybrid, dark-first, Inter + JetBrains Mono)
+- [x] Blog scraping (JSON-LD + HTML fallback)
 - [x] LLM ingredient extraction with Hinglish resolution
-- [x] Catalog matching with pack-size rounding
+- [x] Permissive LLM schema + unit normalization (resilient to "strand", "blade", etc.)
+- [x] Post-LLM pipeline: canonicalize → filter → dedupe
+- [x] IDF-weighted catalog matching with pack-size rounding
 - [x] Cart assembly (mock)
-- [ ] Seed catalog expanded to ~200 real Indian grocery SKUs
-- [ ] UI wired end-to-end
-- [ ] Deployed to Vercel
+- [x] Seed catalog of 208 real Indian grocery SKUs across 14 categories
+- [x] UI wired end-to-end (hero, progress stepper, results, cart)
+- [x] Deployed to Vercel with rate limit (10/hr/IP)
+- [ ] YouTube transcript path re-enabled via residential proxy
 - [ ] Swiggy MCP access granted
 - [ ] `SwiggyMcpInstamartClient` live
 
@@ -69,7 +78,8 @@ Recipe-to-Cart turns that flow into **one URL → one-click cart.**
 - **Next.js 16** (App Router, Turbopack) on **Vercel**
 - **TypeScript** (strict) · **Tailwind v4** · **shadcn/ui** (Base UI)
 - **Vercel AI SDK v6** via **Vercel AI Gateway** (`anthropic/claude-haiku-4-5` default)
-- **Zod** · **cheerio** · **youtube-transcript** · **fuse.js**
+- **Zod** for every external boundary · **cheerio** for blog scraping · **youtube-transcript** (local-only)
+- **No `fuse.js`** — custom IDF-weighted token scoring in `lib/instamart/mock-client.ts`
 
 ## Local setup
 
@@ -108,13 +118,26 @@ src/
 │   │   ├── match/route.ts       # Ingredient[] → MatchResult[]
 │   │   └── cart/route.ts        # CartItem[] → priced Cart
 │   ├── globals.css              # theme — brand CSS vars
+│   ├── icon.svg                 # RC favicon (Swiggy orange)
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components/ui/               # shadcn
 └── lib/
     ├── instamart/               # InstamartClient interface + mock impl
-    ├── recipe/                  # scrape + LLM extract
-    └── matching/                # ingredient × catalog → cart items
+    │                              (tokenizer search, IDF scoring)
+    ├── recipe/
+    │   ├── scrape.ts            # blog + YouTube ingestion
+    │   ├── extract.ts           # LLM → permissive schema → normalize → strict parse
+    │   ├── unit-normalize.ts    # "strand" / "blade" / "knob" → canonical enum
+    │   ├── canonicalize.ts      # strip "fresh X paste" etc.
+    │   ├── filter.ts            # drop non-shoppable (water, ice)
+    │   ├── dedupe.ts            # collapse same-name duplicates
+    │   └── types.ts             # Zod: Ingredient, Recipe, Unit
+    ├── matching/match.ts        # ingredient × catalog → MatchResult[]
+    ├── text/
+    │   ├── tokenize.ts          # shared tokenizer used by search + matcher
+    │   └── similarity.ts        # Levenshtein + original_name display helper
+    └── rate-limit.ts            # in-memory sliding-window limiter for /api/extract
 ```
 
 See [`AGENTS.md`](./AGENTS.md) for the full project charter — architecture rules, conventions, AI agent guardrails, and the theme spec.

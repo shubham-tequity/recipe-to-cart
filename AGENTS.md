@@ -14,13 +14,15 @@ This file is the source of truth for any AI coding agent (Claude Code, Cursor, C
 
 ## What this project is
 
-**Recipe-to-Cart** — paste a recipe URL (cooking blog or YouTube) and get a Swiggy Instamart cart pre-filled with every ingredient in the right quantity.
+**Recipe-to-Cart** — paste a cooking blog URL and get a Swiggy Instamart cart pre-filled with every ingredient in the right quantity.
 
-Built for the **Swiggy Builders Club MCP program** ([mcp.swiggy.com/builders](https://mcp.swiggy.com/builders/)) as a prototype of the "smart grocery agent" use case they call out. Authored by [Tequity](https://tequity.tech).
+Built for the **Swiggy Builders Club MCP program** ([mcp.swiggy.com/builders](https://mcp.swiggy.com/builders/)) as a prototype of the "smart grocery agent" use case they call out. Authored by [Shubham Tequity](https://tequity.tech).
 
 ### Current stage
 
-**Prototype. No Swiggy MCP access yet** (application pending; typical turnaround 4+ weeks). The app runs end-to-end against a **mock Instamart catalog** behind an `InstamartClient` interface — designed so the swap to real MCP is mechanical.
+**Prototype, deployed.** Live at [recipe-to-cart-alpha.vercel.app](https://recipe-to-cart-alpha.vercel.app). No Swiggy MCP access yet (application pending; typical turnaround 4+ weeks), so the app runs end-to-end against a **mock Instamart catalog** behind an `InstamartClient` interface — designed so the swap to real MCP is mechanical.
+
+**YouTube caveat.** `src/lib/recipe/scrape.ts` has a working YouTube-captions path via `youtube-transcript` + oEmbed. It runs fine locally but YouTube blocks Vercel's datacenter IPs from transcript endpoints, so it's currently unreachable in prod. The hero subtitle advertises "YouTube support · coming soon"; re-enable when we route fetches through a residential proxy (`youtubei.js` is a likely next step). Don't rip the code out.
 
 ---
 
@@ -35,9 +37,10 @@ Built for the **Swiggy Builders Club MCP program** ([mcp.swiggy.com/builders](ht
 | LLM | **Vercel AI SDK v6** via **Vercel AI Gateway** | Provider-agnostic model strings: `"anthropic/claude-haiku-4-5"`. |
 | Extraction schema | **Zod** + `generateObject` | See `src/lib/recipe/types.ts`. |
 | Blog scrape | `cheerio` + schema.org JSON-LD | See `src/lib/recipe/scrape.ts`. |
-| YouTube scrape | `youtube-transcript` + oEmbed | Captions only — no Whisper fallback in v1. |
-| Matching | `fuse.js` | Fuzzy over name / brand / aliases. |
-| Hosting | **Vercel** | Single `vercel deploy`. |
+| YouTube scrape | `youtube-transcript` + oEmbed | Captions only — no Whisper fallback. Disabled in prod (see caveat above). |
+| Matching | **Custom IDF-weighted token scoring** | In `lib/instamart/mock-client.ts`. Rare tokens (fennel) outweigh common ones (seed, powder). Primary-noun + name-only extraneous-token tiebreakers. **No Fuse** — it was fuzzy-re-ranking correct results into wrong ones. |
+| Rate limit | **In-memory sliding-window** | `lib/rate-limit.ts`, 10 req/hr/IP on `/api/extract`. Per-instance state; swap to Upstash Redis before going truly public. |
+| Hosting | **Vercel** | Single `vercel --prod`. |
 
 **Default extraction model: `anthropic/claude-haiku-4-5`.** ~$0.005/recipe. Don't silently upgrade to Sonnet — A/B test on two recipes and discuss with the user first.
 
@@ -49,34 +52,58 @@ Built for the **Swiggy Builders Club MCP program** ([mcp.swiggy.com/builders](ht
 src/
 ├── app/
 │   ├── api/
-│   │   ├── extract/route.ts     # URL → scrape → LLM → structured Recipe
+│   │   ├── extract/route.ts     # URL → scrape → LLM → structured Recipe (rate-limited)
 │   │   ├── match/route.ts       # ingredients[] → SKU matches with quantities
 │   │   └── cart/route.ts        # cart item list → priced cart payload
 │   ├── globals.css              # theme — brand CSS vars live here, NOT in config
+│   ├── icon.svg                 # RC favicon (Swiggy orange, system-ui text)
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components/
+│   ├── recipe-to-cart.tsx       # single-file orchestrator + all sub-components
 │   └── ui/                      # shadcn components — do not edit by hand
 ├── lib/
 │   ├── instamart/               # all Instamart abstraction lives here
 │   │   ├── client.ts            # InstamartClient interface — the boundary
-│   │   ├── mock-client.ts       # local catalog.json implementation
-│   │   ├── catalog.json         # seed SKUs (synthesized, clearly labelled)
+│   │   ├── mock-client.ts       # local catalog.json impl + IDF-weighted search
+│   │   ├── catalog.json         # 208 seed SKUs across 14 categories
 │   │   ├── types.ts             # Zod schemas: Sku, CartItem, Cart
 │   │   └── index.ts             # getInstamartClient() — resolves active client
 │   ├── recipe/
 │   │   ├── types.ts             # Zod: Ingredient, Recipe, Unit
 │   │   ├── scrape.ts            # blog + YouTube ingestion
-│   │   └── extract.ts           # LLM extraction via AI SDK
-│   └── matching/
-│       └── match.ts             # ingredient × catalog → MatchResult[]
+│   │   ├── extract.ts           # LLM call (permissive schema) + pipeline orchestrator
+│   │   ├── unit-normalize.ts    # exotic LLM units → canonical enum
+│   │   ├── canonicalize.ts      # strip "fresh X paste" etc. — safety net for prompt
+│   │   ├── filter.ts            # drop non-shoppable ingredients (water, ice)
+│   │   └── dedupe.ts            # collapse same-name duplicates (marinade + curry)
+│   ├── matching/
+│   │   └── match.ts             # per-ingredient: search → pick → resolveQuantity → confidence
+│   ├── text/
+│   │   ├── tokenize.ts          # shared tokenizer used by search AND matcher
+│   │   └── similarity.ts        # Levenshtein + shouldShowOriginalName display helper
+│   └── rate-limit.ts            # in-memory sliding-window limiter
 ```
+
+### Extraction pipeline order
+
+When touching extraction, follow this order exactly. Each step assumes the prior step's output shape:
+
+1. `scrape.ts` — fetch page, pull JSON-LD or HTML fallback (or YouTube captions locally).
+2. `extract.ts` — LLM via `generateObject` against the permissive schema (`unit: z.string()`).
+3. `unit-normalize.ts` — exotic units (`strand`, `blade`, `knob`) → canonical enum.
+4. Strict `recipeSchema.parse` — enforce downstream contract.
+5. `canonicalize.ts` — strip `fresh X paste/powder/sauce/puree/chutney/achar/ketchup`.
+6. `filter.ts` — drop `water`, `ice`, and other non-shoppable liquids.
+7. `dedupe.ts` — collapse same-name duplicates across recipe sections.
+8. `matching/match.ts` — per ingredient: `client.searchProducts` → top result → `resolveQuantity` → combined confidence.
 
 ### Rule: no cross-layer leakage
 
 - **`lib/recipe/` must not import `lib/instamart/`** — recipes don't know about catalogs.
 - **`lib/matching/` is the only place where recipes meet SKUs.** Keep it that way.
-- **API routes are thin.** Validate → call lib function → return. No business logic in routes.
+- **`lib/text/` is framework-agnostic** — no React, no Next, no Instamart. Shared utilities only.
+- **API routes are thin.** Validate → rate-limit (where applicable) → call lib function → return. No business logic in routes.
 
 ---
 
@@ -96,7 +123,9 @@ This is the swap point. **Any new cart/catalog feature goes through this interfa
 
 ### `Recipe` / `Ingredient` — [`src/lib/recipe/types.ts`](src/lib/recipe/types.ts)
 
-Zod-validated. The extraction prompt is bound to this schema — if you change the schema, update the prompt in `src/lib/recipe/extract.ts` to match. The unit enum is fixed; don't add new units without updating the matcher's `convertToBase`.
+Zod-validated. The extraction prompt is bound to this schema — if you change the schema, update the prompt in `src/lib/recipe/extract.ts` to match.
+
+The unit enum is fixed. The LLM is allowed to return any string for `unit` (we parse against a permissive mirror schema), and `lib/recipe/unit-normalize.ts` maps exotics (`strand`, `blade`, `knob`, `dash`) to the canonical enum before the strict `recipeSchema.parse`. If you add a new canonical unit, update **three** places: `unitSchema`, `convertToBase` (in `matching/match.ts`), and any exotic aliases in `unit-normalize.ts`.
 
 ---
 
@@ -128,7 +157,9 @@ Zod-validated. The extraction prompt is bound to this schema — if you change t
 
 **Radius default: `0.75rem` (rounded-lg).** Avoid sharp corners.
 
-Fonts: Geist Sans + Geist Mono (loaded in `layout.tsx`).
+Fonts: **Inter** (UI) + **JetBrains Mono** (optional mono slot), loaded via `next/font/google` in `layout.tsx`. Inter uses OpenType features `cv11`, `ss01`, `ss03` for alternate `a`, `g`, `1` — tuned in `globals.css` under `html, body`.
+
+Favicon: `src/app/icon.svg` — Swiggy-orange rounded square with white "RC" text. Next.js auto-wires it from the `app/` directory.
 
 ---
 
