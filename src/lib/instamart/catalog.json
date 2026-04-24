@@ -1,57 +1,2973 @@
 [
   {
-    "id": "mock-onion-1kg",
-    "name": "Onion",
-    "brand": "Fresh Produce",
-    "category": "vegetables",
+    "id": "staples-india-gate-basmati-rice-1000g-0",
+    "name": "Basmati Rice",
+    "brand": "India Gate",
+    "category": "staples",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 120,
+    "is_veg": true,
+    "aliases": [
+      "basmati chawal",
+      "white basmati",
+      "long grain rice"
+    ]
+  },
+  {
+    "id": "staples-daawat-basmati-rice-5000g-1",
+    "name": "Basmati Rice",
+    "brand": "Daawat",
+    "category": "staples",
+    "pack_size": 5000,
+    "pack_unit": "g",
+    "mrp": 550,
+    "is_veg": true,
+    "aliases": [
+      "daawat basmati",
+      "premium basmati"
+    ]
+  },
+  {
+    "id": "staples-india-gate-sona-masoori-rice-1000g-2",
+    "name": "Sona Masoori Rice",
+    "brand": "India Gate",
+    "category": "staples",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 85,
+    "is_veg": true,
+    "aliases": [
+      "sona masuri",
+      "golden rice",
+      "short grain rice"
+    ]
+  },
+  {
+    "id": "staples-kohinoor-kohinoor-basmati-rice-1000g-3",
+    "name": "Kohinoor Basmati Rice",
+    "brand": "Kohinoor",
+    "category": "staples",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 105,
+    "is_veg": true,
+    "aliases": [
+      "kohinoor basmati",
+      "basmati chawal"
+    ]
+  },
+  {
+    "id": "staples-daawat-idli-rice-1000g-4",
+    "name": "Idli Rice",
+    "brand": "Daawat",
+    "category": "staples",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 70,
+    "is_veg": true,
+    "aliases": [
+      "idly rice",
+      "ponni rice",
+      "idli sadam"
+    ]
+  },
+  {
+    "id": "staples-tata-salt-iodized-salt-1000g-5",
+    "name": "Iodized Salt",
+    "brand": "Tata Salt",
+    "category": "staples",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 25,
+    "is_veg": true,
+    "aliases": [
+      "tata namak",
+      "iodized salt",
+      "table salt"
+    ]
+  },
+  {
+    "id": "staples-madhur-rock-salt-1000g-6",
+    "name": "Rock Salt",
+    "brand": "Madhur",
+    "category": "staples",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 35,
+    "is_veg": true,
+    "aliases": [
+      "sendha namak",
+      "rock salt",
+      "pink salt"
+    ]
+  },
+  {
+    "id": "staples-tata-salt-black-salt-1000g-7",
+    "name": "Black Salt",
+    "brand": "Tata Salt",
+    "category": "staples",
     "pack_size": 1000,
     "pack_unit": "g",
     "mrp": 45,
     "is_veg": true,
-    "aliases": ["pyaaz", "kanda", "ulli"]
+    "aliases": [
+      "kala namak",
+      "black salt",
+      "himalayan black salt"
+    ]
   },
   {
-    "id": "mock-tomato-500g",
-    "name": "Tomato",
+    "id": "staples-dhampure-white-sugar-1000g-8",
+    "name": "White Sugar",
+    "brand": "Dhampure",
+    "category": "staples",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 40,
+    "is_veg": true,
+    "aliases": [
+      "white sugar",
+      "granulated sugar",
+      "chini"
+    ]
+  },
+  {
+    "id": "staples-dhampure-brown-sugar-1000g-9",
+    "name": "Brown Sugar",
+    "brand": "Dhampure",
+    "category": "staples",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 50,
+    "is_veg": true,
+    "aliases": [
+      "brown sugar",
+      "demerara sugar"
+    ]
+  },
+  {
+    "id": "staples-dhampure-jaggery-1000g-10",
+    "name": "Jaggery",
+    "brand": "Dhampure",
+    "category": "staples",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 60,
+    "is_veg": true,
+    "aliases": [
+      "gur",
+      "jaggery",
+      "organic jaggery"
+    ]
+  },
+  {
+    "id": "staples-aashirvaad-rice-flakes-poha-500g-11",
+    "name": "Rice Flakes (Poha)",
+    "brand": "Aashirvaad",
+    "category": "staples",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 55,
+    "is_veg": true,
+    "aliases": [
+      "poha",
+      "rice flakes",
+      "aval"
+    ]
+  },
+  {
+    "id": "staples-aashirvaad-vermicelli-500g-12",
+    "name": "Vermicelli",
+    "brand": "Aashirvaad",
+    "category": "staples",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 50,
+    "is_veg": true,
+    "aliases": [
+      "seviyan",
+      "vermicelli",
+      "sevviyyan"
+    ]
+  },
+  {
+    "id": "staples-fortune-sabudana-500g-13",
+    "name": "Sabudana",
+    "brand": "Fortune",
+    "category": "staples",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 70,
+    "is_veg": true,
+    "aliases": [
+      "sabu dana",
+      "sago",
+      "saboodana"
+    ]
+  },
+  {
+    "id": "staples-fortune-fortune-basmati-rice-1000g-14",
+    "name": "Fortune Basmati Rice",
+    "brand": "Fortune",
+    "category": "staples",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 115,
+    "is_veg": true,
+    "aliases": [
+      "fortune basmati",
+      "basmati chawal",
+      "white rice"
+    ]
+  },
+  {
+    "id": "flours-aashirvaad-aashirvaad-atta-whole-wheat-5000g-0",
+    "name": "Aashirvaad Atta - Whole Wheat",
+    "brand": "Aashirvaad",
+    "category": "flours",
+    "pack_size": 5000,
+    "pack_unit": "g",
+    "mrp": 280,
+    "is_veg": true,
+    "aliases": [
+      "Aashirvaad atta",
+      "peesa huaa gehun",
+      "whole wheat flour"
+    ]
+  },
+  {
+    "id": "flours-pillsbury-pillsbury-maida-all-purpose-flour-1000g-1",
+    "name": "Pillsbury Maida - All Purpose Flour",
+    "brand": "Pillsbury",
+    "category": "flours",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 65,
+    "is_veg": true,
+    "aliases": [
+      "Pillsbury maida",
+      "refined flour",
+      "all purpose flour"
+    ]
+  },
+  {
+    "id": "flours-fortune-fortune-besan-gram-flour-500g-2",
+    "name": "Fortune Besan - Gram Flour",
+    "brand": "Fortune",
+    "category": "flours",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 55,
+    "is_veg": true,
+    "aliases": [
+      "Fortune besan",
+      "chickpea flour",
+      "gram flour",
+      "channe ka atta"
+    ]
+  },
+  {
+    "id": "flours-tata-sampann-tata-sampann-sooji-fine-semolina-500g-3",
+    "name": "Tata Sampann Sooji - Fine Semolina",
+    "brand": "Tata Sampann",
+    "category": "flours",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 42,
+    "is_veg": true,
+    "aliases": [
+      "Tata Sampann sooji",
+      "fine semolina",
+      "rava",
+      "semiya"
+    ]
+  },
+  {
+    "id": "flours-24-mantra-24-mantra-ragi-flour-finger-millet-500g-4",
+    "name": "24 Mantra Ragi Flour - Finger Millet",
+    "brand": "24 Mantra",
+    "category": "flours",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 75,
+    "is_veg": true,
+    "aliases": [
+      "ragi atta",
+      "finger millet flour",
+      "mandharam",
+      "ragi powder"
+    ]
+  },
+  {
+    "id": "flours-aashirvaad-aashirvaad-multigrain-atta-1000g-5",
+    "name": "Aashirvaad Multigrain Atta",
+    "brand": "Aashirvaad",
+    "category": "flours",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 95,
+    "is_veg": true,
+    "aliases": [
+      "multigrain flour",
+      "mixed atta",
+      "seven grains atta"
+    ]
+  },
+  {
+    "id": "flours-pillsbury-pillsbury-sooji-coarse-semolina-1000g-6",
+    "name": "Pillsbury Sooji - Coarse Semolina",
+    "brand": "Pillsbury",
+    "category": "flours",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 68,
+    "is_veg": true,
+    "aliases": [
+      "coarse sooji",
+      "halwa rava",
+      "coarse semolina"
+    ]
+  },
+  {
+    "id": "flours-fortune-fortune-bajra-flour-pearl-millet-500g-7",
+    "name": "Fortune Bajra Flour - Pearl Millet",
+    "brand": "Fortune",
+    "category": "flours",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 65,
+    "is_veg": true,
+    "aliases": [
+      "bajra atta",
+      "pearl millet flour",
+      "babajari atta"
+    ]
+  },
+  {
+    "id": "flours-tata-sampann-tata-sampann-jowar-flour-sorghum-500g-8",
+    "name": "Tata Sampann Jowar Flour - Sorghum",
+    "brand": "Tata Sampann",
+    "category": "flours",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 62,
+    "is_veg": true,
+    "aliases": [
+      "jowar atta",
+      "sorghum flour",
+      "jwar atta"
+    ]
+  },
+  {
+    "id": "flours-24-mantra-24-mantra-rice-flour-500g-9",
+    "name": "24 Mantra Rice Flour",
+    "brand": "24 Mantra",
+    "category": "flours",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 58,
+    "is_veg": true,
+    "aliases": [
+      "rice flour",
+      "chawal ka atta",
+      "rice powder"
+    ]
+  },
+  {
+    "id": "flours-aashirvaad-aashirvaad-maida-all-purpose-flour-1000g-10",
+    "name": "Aashirvaad Maida - All Purpose Flour",
+    "brand": "Aashirvaad",
+    "category": "flours",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 62,
+    "is_veg": true,
+    "aliases": [
+      "refined flour",
+      "Aashirvaad maida",
+      "all purpose"
+    ]
+  },
+  {
+    "id": "flours-fortune-fortune-corn-flour-500g-11",
+    "name": "Fortune Corn Flour",
+    "brand": "Fortune",
+    "category": "flours",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 48,
+    "is_veg": true,
+    "aliases": [
+      "corn flour",
+      "makki ka atta",
+      "cornstarch"
+    ]
+  },
+  {
+    "id": "pulses-tata-sampann-tata-sampann-toor-dal-500g-0",
+    "name": "Tata Sampann Toor Dal",
+    "brand": "Tata Sampann",
+    "category": "pulses",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 89,
+    "is_veg": true,
+    "aliases": [
+      "arhar dal",
+      "tuvar dal",
+      "tur dal"
+    ]
+  },
+  {
+    "id": "pulses-fortune-fortune-moong-dal-whole-1000g-1",
+    "name": "Fortune Moong Dal Whole",
+    "brand": "Fortune",
+    "category": "pulses",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 145,
+    "is_veg": true,
+    "aliases": [
+      "sabut moong",
+      "whole green moong",
+      "mung bean"
+    ]
+  },
+  {
+    "id": "pulses-24-mantra-24-mantra-moong-dal-split-yellow-500g-2",
+    "name": "24 Mantra Moong Dal Split Yellow",
+    "brand": "24 Mantra",
+    "category": "pulses",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 78,
+    "is_veg": true,
+    "aliases": [
+      "peeli moong",
+      "yellow moong dal",
+      "moong chilka"
+    ]
+  },
+  {
+    "id": "pulses-patanjali-patanjali-chana-dal-1000g-3",
+    "name": "Patanjali Chana Dal",
+    "brand": "Patanjali",
+    "category": "pulses",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 125,
+    "is_veg": true,
+    "aliases": [
+      "split gram",
+      "chani dal",
+      "chana dhaal"
+    ]
+  },
+  {
+    "id": "pulses-tata-sampann-tata-sampann-kabuli-chana-1000g-4",
+    "name": "Tata Sampann Kabuli Chana",
+    "brand": "Tata Sampann",
+    "category": "pulses",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 156,
+    "is_veg": true,
+    "aliases": [
+      "white chickpea",
+      "safed chana",
+      "kabuli chick pea"
+    ]
+  },
+  {
+    "id": "pulses-fortune-fortune-masoor-dal-split-red-500g-5",
+    "name": "Fortune Masoor Dal Split Red",
+    "brand": "Fortune",
+    "category": "pulses",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 92,
+    "is_veg": true,
+    "aliases": [
+      "red lentil",
+      "masur dal",
+      "laal dal"
+    ]
+  },
+  {
+    "id": "pulses-24-mantra-24-mantra-urad-dal-whole-black-500g-6",
+    "name": "24 Mantra Urad Dal Whole Black",
+    "brand": "24 Mantra",
+    "category": "pulses",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 112,
+    "is_veg": true,
+    "aliases": [
+      "sabut urad",
+      "black gram",
+      "black urid"
+    ]
+  },
+  {
+    "id": "pulses-patanjali-patanjali-urad-dal-split-white-1000g-7",
+    "name": "Patanjali Urad Dal Split White",
+    "brand": "Patanjali",
+    "category": "pulses",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 138,
+    "is_veg": true,
+    "aliases": [
+      "white urad",
+      "urad chilka",
+      "split gram"
+    ]
+  },
+  {
+    "id": "pulses-tata-sampann-tata-sampann-kala-chana-1000g-8",
+    "name": "Tata Sampann Kala Chana",
+    "brand": "Tata Sampann",
+    "category": "pulses",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 162,
+    "is_veg": true,
+    "aliases": [
+      "black chickpea",
+      "kali chana",
+      "desi chana"
+    ]
+  },
+  {
+    "id": "pulses-fortune-fortune-rajma-red-500g-9",
+    "name": "Fortune Rajma Red",
+    "brand": "Fortune",
+    "category": "pulses",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 98,
+    "is_veg": true,
+    "aliases": [
+      "red kidney bean",
+      "lal rajma",
+      "common bean"
+    ]
+  },
+  {
+    "id": "pulses-24-mantra-24-mantra-rajma-chitra-1000g-10",
+    "name": "24 Mantra Rajma Chitra",
+    "brand": "24 Mantra",
+    "category": "pulses",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 168,
+    "is_veg": true,
+    "aliases": [
+      "spotted kidney bean",
+      "chitra bean",
+      "pinto bean"
+    ]
+  },
+  {
+    "id": "pulses-patanjali-patanjali-rajma-kashmiri-500g-11",
+    "name": "Patanjali Rajma Kashmiri",
+    "brand": "Patanjali",
+    "category": "pulses",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 105,
+    "is_veg": true,
+    "aliases": [
+      "kashmiri kidney bean",
+      "light red rajma",
+      "jammu rajma"
+    ]
+  },
+  {
+    "id": "pulses-tata-sampann-tata-sampann-lobia-500g-12",
+    "name": "Tata Sampann Lobia",
+    "brand": "Tata Sampann",
+    "category": "pulses",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 88,
+    "is_veg": true,
+    "aliases": [
+      "black eyed peas",
+      "lobia dal",
+      "lobhia"
+    ]
+  },
+  {
+    "id": "pulses-fortune-fortune-green-peas-dry-1000g-13",
+    "name": "Fortune Green Peas Dry",
+    "brand": "Fortune",
+    "category": "pulses",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 152,
+    "is_veg": true,
+    "aliases": [
+      "hare matar",
+      "dried green peas",
+      "matar dal"
+    ]
+  },
+  {
+    "id": "pulses-24-mantra-24-mantra-masoor-dal-whole-pink-500g-14",
+    "name": "24 Mantra Masoor Dal Whole Pink",
+    "brand": "24 Mantra",
+    "category": "pulses",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 102,
+    "is_veg": true,
+    "aliases": [
+      "sabut masoor",
+      "whole lentil",
+      "pink masur"
+    ]
+  },
+  {
+    "id": "pulses-patanjali-patanjali-moong-dal-split-green-with-skin-500g-15",
+    "name": "Patanjali Moong Dal Split Green with Skin",
+    "brand": "Patanjali",
+    "category": "pulses",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 85,
+    "is_veg": true,
+    "aliases": [
+      "harri moong",
+      "moong dal with chilka",
+      "green moong chilka"
+    ]
+  },
+  {
+    "id": "pulses-tata-sampann-tata-sampann-urad-dal-split-black-1000g-16",
+    "name": "Tata Sampann Urad Dal Split Black",
+    "brand": "Tata Sampann",
+    "category": "pulses",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 148,
+    "is_veg": true,
+    "aliases": [
+      "black urad split",
+      "urad dal bhaaji",
+      "split black gram"
+    ]
+  },
+  {
+    "id": "pulses-fortune-fortune-chana-dal-premium-500g-17",
+    "name": "Fortune Chana Dal Premium",
+    "brand": "Fortune",
+    "category": "pulses",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 76,
+    "is_veg": true,
+    "aliases": [
+      "chani dal",
+      "split chickpea",
+      "chana bhat"
+    ]
+  },
+  {
+    "id": "pulses-24-mantra-24-mantra-toor-dal-organic-1000g-18",
+    "name": "24 Mantra Toor Dal Organic",
+    "brand": "24 Mantra",
+    "category": "pulses",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 178,
+    "is_veg": true,
+    "aliases": [
+      "arhar organic",
+      "tuvar dal organic",
+      "pigeon pea"
+    ]
+  },
+  {
+    "id": "pulses-patanjali-patanjali-moong-dal-whole-premium-500g-19",
+    "name": "Patanjali Moong Dal Whole Premium",
+    "brand": "Patanjali",
+    "category": "pulses",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 95,
+    "is_veg": true,
+    "aliases": [
+      "sabut moong premium",
+      "whole mung bean",
+      "green gram whole"
+    ]
+  },
+  {
+    "id": "spices-tata-sampann-turmeric-powder-100g-0",
+    "name": "Turmeric Powder",
+    "brand": "Tata Sampann",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 89,
+    "is_veg": true,
+    "aliases": [
+      "haldi powder",
+      "haridra",
+      "manjal podi"
+    ]
+  },
+  {
+    "id": "spices-mdh-red-chili-powder-kashmiri-100g-1",
+    "name": "Red Chili Powder (Kashmiri)",
+    "brand": "MDH",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 120,
+    "is_veg": true,
+    "aliases": [
+      "kashmiri mirch powder",
+      "degchi mirch",
+      "sukha mirch"
+    ]
+  },
+  {
+    "id": "spices-everest-red-chili-powder-regular-100g-2",
+    "name": "Red Chili Powder (Regular)",
+    "brand": "Everest",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 85,
+    "is_veg": true,
+    "aliases": [
+      "mirch powder",
+      "lal mirch",
+      "red chili masala"
+    ]
+  },
+  {
+    "id": "spices-aashirvaad-coriander-powder-100g-3",
+    "name": "Coriander Powder",
+    "brand": "Aashirvaad",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 75,
+    "is_veg": true,
+    "aliases": [
+      "dhania powder",
+      "kothimbir pudi",
+      "kothamalli podi"
+    ]
+  },
+  {
+    "id": "spices-catch-cumin-seeds-whole-200g-4",
+    "name": "Cumin Seeds (Whole)",
+    "brand": "Catch",
+    "category": "spices",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 130,
+    "is_veg": true,
+    "aliases": [
+      "jeera poore",
+      "jira seeds",
+      "cuminum"
+    ]
+  },
+  {
+    "id": "spices-tata-sampann-cumin-powder-100g-5",
+    "name": "Cumin Powder",
+    "brand": "Tata Sampann",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 95,
+    "is_veg": true,
+    "aliases": [
+      "jeera powder",
+      "jira podi",
+      "cumin masala"
+    ]
+  },
+  {
+    "id": "spices-everest-black-pepper-whole-100g-6",
+    "name": "Black Pepper (Whole)",
+    "brand": "Everest",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 140,
+    "is_veg": true,
+    "aliases": [
+      "kali mirch poore",
+      "pepper seeds",
+      "black peppercorn"
+    ]
+  },
+  {
+    "id": "spices-mdh-black-pepper-powder-50g-7",
+    "name": "Black Pepper Powder",
+    "brand": "MDH",
+    "category": "spices",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 110,
+    "is_veg": true,
+    "aliases": [
+      "kali mirch powder",
+      "pepper masala",
+      "black pepper"
+    ]
+  },
+  {
+    "id": "spices-tata-sampann-green-cardamom-50g-8",
+    "name": "Green Cardamom",
+    "brand": "Tata Sampann",
+    "category": "spices",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 180,
+    "is_veg": true,
+    "aliases": [
+      "hari elaichi",
+      "green cardamom pods",
+      "choti elaichi"
+    ]
+  },
+  {
+    "id": "spices-catch-black-cardamom-50g-9",
+    "name": "Black Cardamom",
+    "brand": "Catch",
+    "category": "spices",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 150,
+    "is_veg": true,
+    "aliases": [
+      "kali elaichi",
+      "badi elaichi",
+      "black cardamom pods"
+    ]
+  },
+  {
+    "id": "spices-aashirvaad-cloves-50g-10",
+    "name": "Cloves",
+    "brand": "Aashirvaad",
+    "category": "spices",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 160,
+    "is_veg": true,
+    "aliases": [
+      "laung",
+      "clove buds",
+      "cloven"
+    ]
+  },
+  {
+    "id": "spices-mdh-cinnamon-sticks-50g-11",
+    "name": "Cinnamon Sticks",
+    "brand": "MDH",
+    "category": "spices",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 135,
+    "is_veg": true,
+    "aliases": [
+      "dalchini sticks",
+      "cinnamon bark",
+      "taj ke patte"
+    ]
+  },
+  {
+    "id": "spices-everest-bay-leaves-20g-12",
+    "name": "Bay Leaves",
+    "brand": "Everest",
+    "category": "spices",
+    "pack_size": 20,
+    "pack_unit": "g",
+    "mrp": 65,
+    "is_veg": true,
+    "aliases": [
+      "tej patta",
+      "bay leaf",
+      "laurel leaves"
+    ]
+  },
+  {
+    "id": "spices-tata-sampann-mustard-seeds-yellow-200g-13",
+    "name": "Mustard Seeds (Yellow)",
+    "brand": "Tata Sampann",
+    "category": "spices",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 95,
+    "is_veg": true,
+    "aliases": [
+      "rai seeds",
+      "sarson ke beej",
+      "mustard"
+    ]
+  },
+  {
+    "id": "spices-catch-fenugreek-seeds-100g-14",
+    "name": "Fenugreek Seeds",
+    "brand": "Catch",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 85,
+    "is_veg": true,
+    "aliases": [
+      "methi seeds",
+      "fenugreek",
+      "methika"
+    ]
+  },
+  {
+    "id": "spices-aashirvaad-fennel-seeds-100g-15",
+    "name": "Fennel Seeds",
+    "brand": "Aashirvaad",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 90,
+    "is_veg": true,
+    "aliases": [
+      "saunf",
+      "fennel",
+      "perumjeerakam"
+    ]
+  },
+  {
+    "id": "spices-mdh-asafoetida-hing-50g-16",
+    "name": "Asafoetida (Hing)",
+    "brand": "MDH",
+    "category": "spices",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 220,
+    "is_veg": true,
+    "aliases": [
+      "hing",
+      "asafoetida",
+      "asafetida"
+    ]
+  },
+  {
+    "id": "spices-everest-nigella-seeds-kalonji-100g-17",
+    "name": "Nigella Seeds (Kalonji)",
+    "brand": "Everest",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 75,
+    "is_veg": true,
+    "aliases": [
+      "kalonji",
+      "nigella",
+      "black cumin"
+    ]
+  },
+  {
+    "id": "spices-tata-sampann-carom-seeds-ajwain-100g-18",
+    "name": "Carom Seeds (Ajwain)",
+    "brand": "Tata Sampann",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 80,
+    "is_veg": true,
+    "aliases": [
+      "ajwain",
+      "bishop's weed",
+      "ajowan"
+    ]
+  },
+  {
+    "id": "spices-catch-dry-mango-powder-amchur-100g-19",
+    "name": "Dry Mango Powder (Amchur)",
+    "brand": "Catch",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 110,
+    "is_veg": true,
+    "aliases": [
+      "amchur",
+      "mango powder",
+      "aam ka powder"
+    ]
+  },
+  {
+    "id": "spices-mdh-chaat-masala-100g-20",
+    "name": "Chaat Masala",
+    "brand": "MDH",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 95,
+    "is_veg": true,
+    "aliases": [
+      "chaat masala",
+      "chat masala",
+      "tangy spice mix"
+    ]
+  },
+  {
+    "id": "spices-aashirvaad-garam-masala-100g-21",
+    "name": "Garam Masala",
+    "brand": "Aashirvaad",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 105,
+    "is_veg": true,
+    "aliases": [
+      "garam masala",
+      "warm spices",
+      "masala mix"
+    ]
+  },
+  {
+    "id": "spices-everest-sambar-powder-100g-22",
+    "name": "Sambar Powder",
+    "brand": "Everest",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 90,
+    "is_veg": true,
+    "aliases": [
+      "sambar masala",
+      "sambar podi",
+      "sambar spice"
+    ]
+  },
+  {
+    "id": "spices-tata-sampann-rasam-powder-100g-23",
+    "name": "Rasam Powder",
+    "brand": "Tata Sampann",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 95,
+    "is_veg": true,
+    "aliases": [
+      "rasam masala",
+      "rasam podi",
+      "soup spice"
+    ]
+  },
+  {
+    "id": "spices-catch-biryani-masala-100g-24",
+    "name": "Biryani Masala",
+    "brand": "Catch",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 115,
+    "is_veg": true,
+    "aliases": [
+      "biryani spice",
+      "biryani masala",
+      "hyderabadi masala"
+    ]
+  },
+  {
+    "id": "spices-mdh-chicken-masala-100g-25",
+    "name": "Chicken Masala",
+    "brand": "MDH",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 100,
+    "is_veg": true,
+    "aliases": [
+      "chicken masala",
+      "murgh masala",
+      "poultry spice"
+    ]
+  },
+  {
+    "id": "spices-aashirvaad-meat-masala-100g-26",
+    "name": "Meat Masala",
+    "brand": "Aashirvaad",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 105,
+    "is_veg": true,
+    "aliases": [
+      "meat masala",
+      "gosht masala",
+      "lamb spice"
+    ]
+  },
+  {
+    "id": "spices-everest-pav-bhaji-masala-100g-27",
+    "name": "Pav Bhaji Masala",
+    "brand": "Everest",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 100,
+    "is_veg": true,
+    "aliases": [
+      "pav bhaji masala",
+      "bhaji masala",
+      "street food spice"
+    ]
+  },
+  {
+    "id": "spices-tata-sampann-kitchen-king-masala-100g-28",
+    "name": "Kitchen King Masala",
+    "brand": "Tata Sampann",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 110,
+    "is_veg": true,
+    "aliases": [
+      "kitchen king",
+      "king of spices",
+      "all-purpose masala"
+    ]
+  },
+  {
+    "id": "spices-catch-chana-masala-100g-29",
+    "name": "Chana Masala",
+    "brand": "Catch",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 95,
+    "is_veg": true,
+    "aliases": [
+      "chana masala",
+      "chickpea spice",
+      "chole masala"
+    ]
+  },
+  {
+    "id": "spices-mdh-tandoori-masala-100g-30",
+    "name": "Tandoori Masala",
+    "brand": "MDH",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 105,
+    "is_veg": true,
+    "aliases": [
+      "tandoori masala",
+      "tandoor spice",
+      "grilled spice"
+    ]
+  },
+  {
+    "id": "spices-ramdev-dried-red-chilies-100g-31",
+    "name": "Dried Red Chilies",
+    "brand": "Ramdev",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 110,
+    "is_veg": true,
+    "aliases": [
+      "sukhe lal mirch",
+      "dried chilies",
+      "red chili"
+    ]
+  },
+  {
+    "id": "spices-aashirvaad-coriander-seeds-whole-200g-32",
+    "name": "Coriander Seeds (Whole)",
+    "brand": "Aashirvaad",
+    "category": "spices",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 120,
+    "is_veg": true,
+    "aliases": [
+      "dhania poore",
+      "coriander seeds",
+      "kothamalli"
+    ]
+  },
+  {
+    "id": "spices-everest-white-sesame-seeds-100g-33",
+    "name": "White Sesame Seeds",
+    "brand": "Everest",
+    "category": "spices",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 100,
+    "is_veg": true,
+    "aliases": [
+      "til ke beej",
+      "sesame seeds",
+      "white til"
+    ]
+  },
+  {
+    "id": "spices-catch-poppy-seeds-50g-34",
+    "name": "Poppy Seeds",
+    "brand": "Catch",
+    "category": "spices",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 95,
+    "is_veg": true,
+    "aliases": [
+      "khus khus",
+      "poppy seeds",
+      "opium poppy"
+    ]
+  },
+  {
+    "id": "spices-tata-sampann-pomegranate-seeds-powder-50g-35",
+    "name": "Pomegranate Seeds Powder",
+    "brand": "Tata Sampann",
+    "category": "spices",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 125,
+    "is_veg": true,
+    "aliases": [
+      "pomegranate powder",
+      "anar ke beej powder",
+      "pomegranate spice"
+    ]
+  },
+  {
+    "id": "oils-fortune-fortune-refined-sunflower-oil-1000ml-0",
+    "name": "Fortune Refined Sunflower Oil",
+    "brand": "Fortune",
+    "category": "oils",
+    "pack_size": 1000,
+    "pack_unit": "ml",
+    "mrp": 165,
+    "is_veg": true,
+    "aliases": [
+      "Fortune Suryamukhi Tel",
+      "Suryamukhi Refined Oil",
+      "सूरजमुखी तेल"
+    ]
+  },
+  {
+    "id": "oils-saffola-saffola-gold-refined-soyabean-oil-1000ml-1",
+    "name": "Saffola Gold Refined Soyabean Oil",
+    "brand": "Saffola",
+    "category": "oils",
+    "pack_size": 1000,
+    "pack_unit": "ml",
+    "mrp": 175,
+    "is_veg": true,
+    "aliases": [
+      "Saffola Soya Oil",
+      "Saffola Refined Tel",
+      "Soya Refined Oil"
+    ]
+  },
+  {
+    "id": "oils-dhara-dhara-kacchi-ghani-mustard-oil-1000ml-2",
+    "name": "Dhara Kacchi Ghani Mustard Oil",
+    "brand": "Dhara",
+    "category": "oils",
+    "pack_size": 1000,
+    "pack_unit": "ml",
+    "mrp": 185,
+    "is_veg": true,
+    "aliases": [
+      "Dhara Sarson Ka Tel",
+      "Kacchi Ghani Mustard",
+      "सरसों का तेल"
+    ]
+  },
+  {
+    "id": "oils-sundrop-sundrop-rice-bran-oil-1000ml-3",
+    "name": "Sundrop Rice Bran Oil",
+    "brand": "Sundrop",
+    "category": "oils",
+    "pack_size": 1000,
+    "pack_unit": "ml",
+    "mrp": 225,
+    "is_veg": true,
+    "aliases": [
+      "Chawel Bran Oil",
+      "Rice Oil Sundrop",
+      "चावल का तेल"
+    ]
+  },
+  {
+    "id": "oils-figaro-figaro-extra-virgin-olive-oil-250ml-4",
+    "name": "Figaro Extra Virgin Olive Oil",
+    "brand": "Figaro",
+    "category": "oils",
+    "pack_size": 250,
+    "pack_unit": "ml",
+    "mrp": 395,
+    "is_veg": true,
+    "aliases": [
+      "Figaro Olive Oil Premium",
+      "Extra Virgin Olive",
+      "जैतून का तेल"
+    ]
+  },
+  {
+    "id": "oils-borges-borges-pomace-olive-oil-200ml-5",
+    "name": "Borges Pomace Olive Oil",
+    "brand": "Borges",
+    "category": "oils",
+    "pack_size": 200,
+    "pack_unit": "ml",
+    "mrp": 320,
+    "is_veg": true,
+    "aliases": [
+      "Borges Olive Oil",
+      "Pomace Olive",
+      "Refined Olive Tel"
+    ]
+  },
+  {
+    "id": "oils-parachute-parachute-virgin-coconut-oil-500ml-6",
+    "name": "Parachute Virgin Coconut Oil",
+    "brand": "Parachute",
+    "category": "oils",
+    "pack_size": 500,
+    "pack_unit": "ml",
+    "mrp": 280,
+    "is_veg": true,
+    "aliases": [
+      "Parachute Nariyal Tel",
+      "Virgin Coconut Oil",
+      "नारियल का तेल"
+    ]
+  },
+  {
+    "id": "oils-nutriorg-nutriorg-refined-groundnut-oil-1000ml-7",
+    "name": "Nutriorg Refined Groundnut Oil",
+    "brand": "Nutriorg",
+    "category": "oils",
+    "pack_size": 1000,
+    "pack_unit": "ml",
+    "mrp": 210,
+    "is_veg": true,
+    "aliases": [
+      "Nutriorg Moongphali Tel",
+      "Groundnut Oil Organic",
+      "मूंगफली का तेल"
+    ]
+  },
+  {
+    "id": "oils-amul-amul-pure-desi-ghee-cow-500g-8",
+    "name": "Amul Pure Desi Ghee (Cow)",
+    "brand": "Amul",
+    "category": "oils",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 480,
+    "is_veg": true,
+    "aliases": [
+      "Amul Ghee Cow",
+      "Pure Desi Ghee",
+      "गाय का घी"
+    ]
+  },
+  {
+    "id": "oils-mother-dairy-mother-dairy-desi-ghee-buffalo-1000g-9",
+    "name": "Mother Dairy Desi Ghee (Buffalo)",
+    "brand": "Mother Dairy",
+    "category": "oils",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 890,
+    "is_veg": true,
+    "aliases": [
+      "Mother Dairy Ghee Buffalo",
+      "Pure Bhains Ghee",
+      "भैंस का घी"
+    ]
+  },
+  {
+    "id": "dairy-amul-full-cream-milk-1000ml-0",
+    "name": "Full Cream Milk",
+    "brand": "Amul",
+    "category": "dairy",
+    "pack_size": 1000,
+    "pack_unit": "ml",
+    "mrp": 65,
+    "is_veg": true,
+    "aliases": [
+      "poora doodh",
+      "full fat milk",
+      "मांसल दूध"
+    ]
+  },
+  {
+    "id": "dairy-mother-dairy-toned-milk-1000ml-1",
+    "name": "Toned Milk",
+    "brand": "Mother Dairy",
+    "category": "dairy",
+    "pack_size": 1000,
+    "pack_unit": "ml",
+    "mrp": 56,
+    "is_veg": true,
+    "aliases": [
+      "tone wala milk",
+      "टोन्ड दूध",
+      "half cream milk"
+    ]
+  },
+  {
+    "id": "dairy-heritage-double-toned-milk-500ml-2",
+    "name": "Double Toned Milk",
+    "brand": "Heritage",
+    "category": "dairy",
+    "pack_size": 500,
+    "pack_unit": "ml",
+    "mrp": 24,
+    "is_veg": true,
+    "aliases": [
+      "double tone milk",
+      "डबल टोन्ड दूध",
+      "low fat milk"
+    ]
+  },
+  {
+    "id": "dairy-go-a2-milk-500ml-3",
+    "name": "A2 Milk",
+    "brand": "Go",
+    "category": "dairy",
+    "pack_size": 500,
+    "pack_unit": "ml",
+    "mrp": 85,
+    "is_veg": true,
+    "aliases": [
+      "A2 doodh",
+      "desi cow milk",
+      "देसी दूध"
+    ]
+  },
+  {
+    "id": "dairy-milky-mist-buffalo-milk-500ml-4",
+    "name": "Buffalo Milk",
+    "brand": "Milky Mist",
+    "category": "dairy",
+    "pack_size": 500,
+    "pack_unit": "ml",
+    "mrp": 48,
+    "is_veg": true,
+    "aliases": [
+      "bhains ka doodh",
+      "भैंस का दूध",
+      "buffalo ghee milk"
+    ]
+  },
+  {
+    "id": "dairy-amul-plain-curd-cup-400g-5",
+    "name": "Plain Curd Cup",
+    "brand": "Amul",
+    "category": "dairy",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 30,
+    "is_veg": true,
+    "aliases": [
+      "dahi cup",
+      "दही",
+      "yogurt"
+    ]
+  },
+  {
+    "id": "dairy-mother-dairy-sweetened-curd-pouch-400g-6",
+    "name": "Sweetened Curd Pouch",
+    "brand": "Mother Dairy",
+    "category": "dairy",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 35,
+    "is_veg": true,
+    "aliases": [
+      "mishti dahi",
+      "sweet curd",
+      "मीठा दही"
+    ]
+  },
+  {
+    "id": "dairy-amul-fresh-paneer-200g-7",
+    "name": "Fresh Paneer",
+    "brand": "Amul",
+    "category": "dairy",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 92,
+    "is_veg": true,
+    "aliases": [
+      "panir",
+      "cottage cheese",
+      "पनीर"
+    ]
+  },
+  {
+    "id": "dairy-heritage-malai-paneer-200g-8",
+    "name": "Malai Paneer",
+    "brand": "Heritage",
+    "category": "dairy",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 110,
+    "is_veg": true,
+    "aliases": [
+      "creamy paneer",
+      "rich paneer",
+      "मलाई पनीर"
+    ]
+  },
+  {
+    "id": "dairy-britannia-salted-butter-100g-9",
+    "name": "Salted Butter",
+    "brand": "Britannia",
+    "category": "dairy",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 42,
+    "is_veg": true,
+    "aliases": [
+      "namkeen makkhan",
+      "नमकीन मक्खन",
+      "salted ghee-like butter"
+    ]
+  },
+  {
+    "id": "dairy-nestle-a-unsalted-butter-100g-10",
+    "name": "Unsalted Butter",
+    "brand": "Nestle a+",
+    "category": "dairy",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 45,
+    "is_veg": true,
+    "aliases": [
+      "sweet butter",
+      "sweet makkhan",
+      "बिना नमक मक्खन"
+    ]
+  },
+  {
+    "id": "dairy-amul-cheese-slices-200g-11",
+    "name": "Cheese Slices",
+    "brand": "Amul",
+    "category": "dairy",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 88,
+    "is_veg": true,
+    "aliases": [
+      "cheese slice",
+      "पनीर स्लाइस",
+      "processed cheese"
+    ]
+  },
+  {
+    "id": "dairy-mother-dairy-mozzarella-cheese-block-200g-12",
+    "name": "Mozzarella Cheese Block",
+    "brand": "Mother Dairy",
+    "category": "dairy",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 142,
+    "is_veg": true,
+    "aliases": [
+      "mozzarella",
+      "stretchy cheese",
+      "मोज़रेला"
+    ]
+  },
+  {
+    "id": "dairy-go-fresh-cream-200ml-13",
+    "name": "Fresh Cream",
+    "brand": "Go",
+    "category": "dairy",
+    "pack_size": 200,
+    "pack_unit": "ml",
+    "mrp": 68,
+    "is_veg": true,
+    "aliases": [
+      "whipped cream",
+      "मलाई",
+      "fresh malai"
+    ]
+  },
+  {
+    "id": "dairy-milky-mist-khoya-200g-14",
+    "name": "Khoya",
+    "brand": "Milky Mist",
+    "category": "dairy",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 102,
+    "is_veg": true,
+    "aliases": [
+      "khuwa",
+      "mawa",
+      "खोया"
+    ]
+  },
+  {
+    "id": "dairy-heritage-processed-cheese-block-200g-15",
+    "name": "Processed Cheese Block",
+    "brand": "Heritage",
+    "category": "dairy",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 75,
+    "is_veg": true,
+    "aliases": [
+      "processed cheese",
+      "yellow cheese",
+      "प्रोसेस्ड चीज़"
+    ]
+  },
+  {
+    "id": "dairy-britannia-greek-yogurt-400g-16",
+    "name": "Greek Yogurt",
+    "brand": "Britannia",
+    "category": "dairy",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 95,
+    "is_veg": true,
+    "aliases": [
+      "greek dahi",
+      "thick yogurt",
+      "गाढ़ा दही"
+    ]
+  },
+  {
+    "id": "dairy-nestle-a-flavored-lassi-200ml-17",
+    "name": "Flavored Lassi",
+    "brand": "Nestle a+",
+    "category": "dairy",
+    "pack_size": 200,
+    "pack_unit": "ml",
+    "mrp": 40,
+    "is_veg": true,
+    "aliases": [
+      "lassi",
+      "mango lassi",
+      "लस्सी"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-onion-yellow-1000g-0",
+    "name": "Onion (Yellow)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 30,
+    "is_veg": true,
+    "aliases": [
+      "Piaz",
+      "Kanda",
+      "Onion"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-tomato-red-1000g-1",
+    "name": "Tomato (Red)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 40,
+    "is_veg": true,
+    "aliases": [
+      "Tamatar",
+      "Thakkali",
+      "Fresh Tomato"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-potato-white-1000g-2",
+    "name": "Potato (White)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 25,
+    "is_veg": true,
+    "aliases": [
+      "Aloo",
+      "Potato",
+      "Urulai Kizhang"
+    ]
+  },
+  {
+    "id": "vegetables-vibrant-earth-ginger-fresh-200g-3",
+    "name": "Ginger (Fresh)",
+    "brand": "Vibrant Earth",
+    "category": "vegetables",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 60,
+    "is_veg": true,
+    "aliases": [
+      "Adrak",
+      "Inji",
+      "Ginger Root"
+    ]
+  },
+  {
+    "id": "vegetables-vibrant-earth-garlic-fresh-bulb-200g-4",
+    "name": "Garlic (Fresh Bulb)",
+    "brand": "Vibrant Earth",
+    "category": "vegetables",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 80,
+    "is_veg": true,
+    "aliases": [
+      "Lasun",
+      "Poondu",
+      "Garlic Bulb"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-green-chili-fresh-100g-5",
+    "name": "Green Chili (Fresh)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 35,
+    "is_veg": true,
+    "aliases": [
+      "Hari Mirch",
+      "Hara Mirchi",
+      "Green Pepper"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-red-chili-fresh-100g-6",
+    "name": "Red Chili (Fresh)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 40,
+    "is_veg": true,
+    "aliases": [
+      "Lal Mirch",
+      "Chutnee Mirchi",
+      "Red Pepper"
+    ]
+  },
+  {
+    "id": "vegetables-freshon-coriander-leaves-fresh-100g-7",
+    "name": "Coriander Leaves (Fresh)",
+    "brand": "Freshon",
+    "category": "vegetables",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 25,
+    "is_veg": true,
+    "aliases": [
+      "Hara Dhania",
+      "Cilantro",
+      "Kothimbir"
+    ]
+  },
+  {
+    "id": "vegetables-leafy-mint-leaves-fresh-100g-8",
+    "name": "Mint Leaves (Fresh)",
+    "brand": "Leafy",
+    "category": "vegetables",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 30,
+    "is_veg": true,
+    "aliases": [
+      "Pudina",
+      "Pudeena",
+      "Peppermint"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-curry-leaves-fresh-50g-9",
+    "name": "Curry Leaves (Fresh)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 50,
+    "pack_unit": "g",
+    "mrp": 20,
+    "is_veg": true,
+    "aliases": [
+      "Kadi Patta",
+      "Kariveppu",
+      "Curry Patta"
+    ]
+  },
+  {
+    "id": "vegetables-leafy-spinach-palak-250g-10",
+    "name": "Spinach (Palak)",
+    "brand": "Leafy",
+    "category": "vegetables",
+    "pack_size": 250,
+    "pack_unit": "g",
+    "mrp": 35,
+    "is_veg": true,
+    "aliases": [
+      "Palak",
+      "Paalak Saag",
+      "Spinach Bunch"
+    ]
+  },
+  {
+    "id": "vegetables-leafy-methi-leaves-fenugreek-250g-11",
+    "name": "Methi Leaves (Fenugreek)",
+    "brand": "Leafy",
+    "category": "vegetables",
+    "pack_size": 250,
+    "pack_unit": "g",
+    "mrp": 40,
+    "is_veg": true,
+    "aliases": [
+      "Methi",
+      "Venthaya",
+      "Fenugreek"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-cauliflower-fresh-500g-12",
+    "name": "Cauliflower (Fresh)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 45,
+    "is_veg": true,
+    "aliases": [
+      "Phool Gobi",
+      "Cauliflower",
+      "Gobhi"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-cabbage-green-1000g-13",
+    "name": "Cabbage (Green)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 30,
+    "is_veg": true,
+    "aliases": [
+      "Patta Gobi",
+      "Cabbage",
+      "Mul Karam"
+    ]
+  },
+  {
+    "id": "vegetables-vibrant-earth-ladies-finger-okra-300g-14",
+    "name": "Ladies Finger (Okra)",
+    "brand": "Vibrant Earth",
+    "category": "vegetables",
+    "pack_size": 300,
+    "pack_unit": "g",
+    "mrp": 50,
+    "is_veg": true,
+    "aliases": [
+      "Bhindi",
+      "Okra",
+      "Lady's Finger"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-brinjal-eggplant-500g-15",
+    "name": "Brinjal (Eggplant)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 40,
+    "is_veg": true,
+    "aliases": [
+      "Baingan",
+      "Vazhuthananga",
+      "Eggplant"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-bottle-gourd-lauki-1000g-16",
+    "name": "Bottle Gourd (Lauki)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 35,
+    "is_veg": true,
+    "aliases": [
+      "Lauki",
+      "Calabash",
+      "Bottle Gourd"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-bitter-gourd-karela-500g-17",
+    "name": "Bitter Gourd (Karela)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 55,
+    "is_veg": true,
+    "aliases": [
+      "Karela",
+      "Bitter Melon",
+      "Pavakka"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-ridge-gourd-turai-500g-18",
+    "name": "Ridge Gourd (Turai)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 45,
+    "is_veg": true,
+    "aliases": [
+      "Turai",
+      "Ridged Gourd",
+      "Peerkangai"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-pumpkin-fresh-800g-19",
+    "name": "Pumpkin (Fresh)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 800,
+    "pack_unit": "g",
+    "mrp": 50,
+    "is_veg": true,
+    "aliases": [
+      "Kaddu",
+      "Pumpkin",
+      "Pumkin Sabzi"
+    ]
+  },
+  {
+    "id": "vegetables-vibrant-earth-capsicum-green-200g-20",
+    "name": "Capsicum (Green)",
+    "brand": "Vibrant Earth",
+    "category": "vegetables",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 65,
+    "is_veg": true,
+    "aliases": [
+      "Shimla Mirch",
+      "Bell Pepper",
+      "Green Capsicum"
+    ]
+  },
+  {
+    "id": "vegetables-fresh-produce-carrot-orange-500g-21",
+    "name": "Carrot (Orange)",
     "brand": "Fresh Produce",
     "category": "vegetables",
     "pack_size": 500,
     "pack_unit": "g",
     "mrp": 35,
     "is_veg": true,
-    "aliases": ["tamatar"]
+    "aliases": [
+      "Gajar",
+      "Carrot",
+      "Carrot"
+    ]
   },
   {
-    "id": "mock-turmeric-powder-100g",
-    "name": "Turmeric Powder",
-    "brand": "MDH",
-    "category": "spices",
-    "pack_size": 100,
+    "id": "vegetables-freshon-beetroot-red-500g-22",
+    "name": "Beetroot (Red)",
+    "brand": "Freshon",
+    "category": "vegetables",
+    "pack_size": 500,
     "pack_unit": "g",
-    "mrp": 60,
+    "mrp": 50,
     "is_veg": true,
-    "aliases": ["haldi", "manjal"]
+    "aliases": [
+      "Chukandar",
+      "Beetroot",
+      "Red Beet"
+    ]
   },
   {
-    "id": "mock-cumin-seeds-100g",
-    "name": "Cumin Seeds",
-    "brand": "Tata Sampann",
-    "category": "spices",
-    "pack_size": 100,
+    "id": "vegetables-fresh-produce-radish-white-500g-23",
+    "name": "Radish (White)",
+    "brand": "Fresh Produce",
+    "category": "vegetables",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 30,
+    "is_veg": true,
+    "aliases": [
+      "Mooli",
+      "Radish",
+      "Mullangi"
+    ]
+  },
+  {
+    "id": "vegetables-freshon-corn-on-cob-fresh-300g-24",
+    "name": "Corn on Cob (Fresh)",
+    "brand": "Freshon",
+    "category": "vegetables",
+    "pack_size": 300,
+    "pack_unit": "g",
+    "mrp": 45,
+    "is_veg": true,
+    "aliases": [
+      "Makai",
+      "Sweet Corn",
+      "Corn Cob"
+    ]
+  },
+  {
+    "id": "fruits-freshon-banana-yellow-regular-500g-0",
+    "name": "Banana - Yellow Regular",
+    "brand": "Freshon",
+    "category": "fruits",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 35,
+    "is_veg": true,
+    "aliases": [
+      "peela kela",
+      "yellow banana",
+      "pala",
+      "keli"
+    ]
+  },
+  {
+    "id": "fruits-fresh-produce-lemon-fresh-500g-1",
+    "name": "Lemon - Fresh",
+    "brand": "Fresh Produce",
+    "category": "fruits",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 45,
+    "is_veg": true,
+    "aliases": [
+      "nimbu",
+      "lime",
+      "citrus"
+    ]
+  },
+  {
+    "id": "fruits-freshon-apple-shimla-1000g-2",
+    "name": "Apple - Shimla",
+    "brand": "Freshon",
+    "category": "fruits",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 140,
+    "is_veg": true,
+    "aliases": [
+      "shimla seb",
+      "red apple",
+      "himalayan apple"
+    ]
+  },
+  {
+    "id": "fruits-fresh-produce-mango-alphonso-1000g-3",
+    "name": "Mango - Alphonso",
+    "brand": "Fresh Produce",
+    "category": "fruits",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 180,
+    "is_veg": true,
+    "aliases": [
+      "hapus",
+      "alphonso aam",
+      "maharashtrian mango"
+    ]
+  },
+  {
+    "id": "fruits-freshon-orange-fresh-1000g-4",
+    "name": "Orange - Fresh",
+    "brand": "Freshon",
+    "category": "fruits",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 65,
+    "is_veg": true,
+    "aliases": [
+      "santri",
+      "malta",
+      "orange fruit",
+      "narangi"
+    ]
+  },
+  {
+    "id": "fruits-fresh-produce-pineapple-fresh-1piece-5",
+    "name": "Pineapple - Fresh",
+    "brand": "Fresh Produce",
+    "category": "fruits",
+    "pack_size": 1,
+    "pack_unit": "piece",
+    "mrp": 75,
+    "is_veg": true,
+    "aliases": [
+      "ananas",
+      "pineapple fruit",
+      "anannas"
+    ]
+  },
+  {
+    "id": "fruits-freshon-pomegranate-fresh-1000g-6",
+    "name": "Pomegranate - Fresh",
+    "brand": "Freshon",
+    "category": "fruits",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 160,
+    "is_veg": true,
+    "aliases": [
+      "anar",
+      "pomegranate fruit",
+      "anaar phal"
+    ]
+  },
+  {
+    "id": "fruits-fresh-produce-papaya-fresh-1000g-7",
+    "name": "Papaya - Fresh",
+    "brand": "Fresh Produce",
+    "category": "fruits",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 50,
+    "is_veg": true,
+    "aliases": [
+      "pawpaw",
+      "papita",
+      "पपीता"
+    ]
+  },
+  {
+    "id": "fruits-freshon-guava-fresh-500g-8",
+    "name": "Guava - Fresh",
+    "brand": "Freshon",
+    "category": "fruits",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 40,
+    "is_veg": true,
+    "aliases": [
+      "amrood",
+      "guava fruit",
+      "జ్యామ"
+    ]
+  },
+  {
+    "id": "fruits-fresh-produce-coconut-fresh-whole-1piece-9",
+    "name": "Coconut - Fresh Whole",
+    "brand": "Fresh Produce",
+    "category": "fruits",
+    "pack_size": 1,
+    "pack_unit": "piece",
+    "mrp": 25,
+    "is_veg": true,
+    "aliases": [
+      "nariyal",
+      "fresh coconut",
+      "tender coconut"
+    ]
+  },
+  {
+    "id": "condiments-kissan-tomato-ketchup-500g-0",
+    "name": "Tomato Ketchup",
+    "brand": "Kissan",
+    "category": "condiments",
+    "pack_size": 500,
     "pack_unit": "g",
     "mrp": 75,
     "is_veg": true,
-    "aliases": ["jeera", "jeera seeds", "zeera"]
+    "aliases": [
+      "Tamatar Sauce",
+      "Red Sauce"
+    ]
   },
   {
-    "id": "mock-coriander-powder-100g",
-    "name": "Coriander Powder",
-    "brand": "Everest",
-    "category": "spices",
-    "pack_size": 100,
+    "id": "condiments-cremica-schezwan-sauce-200g-1",
+    "name": "Schezwan Sauce",
+    "brand": "Cremica",
+    "category": "condiments",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 89,
+    "is_veg": true,
+    "aliases": [
+      "Schezwan Mirch Sauce",
+      "Spicy Asian Sauce"
+    ]
+  },
+  {
+    "id": "condiments-priya-mango-achar-400g-2",
+    "name": "Mango Achar",
+    "brand": "Priya",
+    "category": "condiments",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 65,
+    "is_veg": true,
+    "aliases": [
+      "Aam ka Achar",
+      "Pickle"
+    ]
+  },
+  {
+    "id": "condiments-maggi-soy-sauce-200ml-3",
+    "name": "Soy Sauce",
+    "brand": "Maggi",
+    "category": "condiments",
+    "pack_size": 200,
+    "pack_unit": "ml",
+    "mrp": 95,
+    "is_veg": true,
+    "aliases": [
+      "Soya Sauce",
+      "Chinese Sauce"
+    ]
+  },
+  {
+    "id": "condiments-fun-foods-green-chili-sauce-200g-4",
+    "name": "Green Chili Sauce",
+    "brand": "Fun Foods",
+    "category": "condiments",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 72,
+    "is_veg": true,
+    "aliases": [
+      "Hari Mirch Sauce",
+      "Green Chutney"
+    ]
+  },
+  {
+    "id": "condiments-mother-s-recipe-lime-achar-400g-5",
+    "name": "Lime Achar",
+    "brand": "Mother's Recipe",
+    "category": "condiments",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 68,
+    "is_veg": true,
+    "aliases": [
+      "Nimbu ka Achar",
+      "Lemon Pickle"
+    ]
+  },
+  {
+    "id": "condiments-cremica-mayonnaise-300g-6",
+    "name": "Mayonnaise",
+    "brand": "Cremica",
+    "category": "condiments",
+    "pack_size": 300,
+    "pack_unit": "g",
+    "mrp": 110,
+    "is_veg": false,
+    "aliases": [
+      "Mayo",
+      "Egg Mayo"
+    ]
+  },
+  {
+    "id": "condiments-veeba-red-chili-sauce-200g-7",
+    "name": "Red Chili Sauce",
+    "brand": "Veeba",
+    "category": "condiments",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 85,
+    "is_veg": true,
+    "aliases": [
+      "Laal Mirch Sauce",
+      "Hot Chili Sauce"
+    ]
+  },
+  {
+    "id": "condiments-patanjali-mixed-achar-500g-8",
+    "name": "Mixed Achar",
+    "brand": "Patanjali",
+    "category": "condiments",
+    "pack_size": 500,
     "pack_unit": "g",
     "mrp": 55,
     "is_veg": true,
-    "aliases": ["dhania powder", "kothamalli powder"]
+    "aliases": [
+      "Milawaali Achar",
+      "Mixed Pickle"
+    ]
+  },
+  {
+    "id": "condiments-del-monte-mustard-sauce-200g-9",
+    "name": "Mustard Sauce",
+    "brand": "Del Monte",
+    "category": "condiments",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 88,
+    "is_veg": true,
+    "aliases": [
+      "Rai Sauce",
+      "Yellow Mustard"
+    ]
+  },
+  {
+    "id": "condiments-priya-garlic-achar-500g-10",
+    "name": "Garlic Achar",
+    "brand": "Priya",
+    "category": "condiments",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 70,
+    "is_veg": true,
+    "aliases": [
+      "Lahsun ka Achar",
+      "Garlic Pickle"
+    ]
+  },
+  {
+    "id": "condiments-wingreens-farms-tamarind-paste-200g-11",
+    "name": "Tamarind Paste",
+    "brand": "Wingreens Farms",
+    "category": "condiments",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 92,
+    "is_veg": true,
+    "aliases": [
+      "Imli Paste",
+      "Imli Concentrate"
+    ]
+  },
+  {
+    "id": "condiments-mother-s-recipe-mint-chutney-200g-12",
+    "name": "Mint Chutney",
+    "brand": "Mother's Recipe",
+    "category": "condiments",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 78,
+    "is_veg": true,
+    "aliases": [
+      "Pudina Chutney",
+      "Fresh Mint Chutney"
+    ]
+  },
+  {
+    "id": "condiments-kissan-coriander-chutney-200g-13",
+    "name": "Coriander Chutney",
+    "brand": "Kissan",
+    "category": "condiments",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 76,
+    "is_veg": true,
+    "aliases": [
+      "Dhania Chutney",
+      "Cilantro Chutney"
+    ]
+  },
+  {
+    "id": "condiments-patanjali-red-chili-powder-200g-14",
+    "name": "Red Chili Powder",
+    "brand": "Patanjali",
+    "category": "condiments",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 62,
+    "is_veg": true,
+    "aliases": [
+      "Laal Mirch Powder",
+      "Chili Powder"
+    ]
+  },
+  {
+    "id": "dry-goods-happilo-california-almonds-200g-0",
+    "name": "California Almonds",
+    "brand": "Happilo",
+    "category": "dry-goods",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 449,
+    "is_veg": true,
+    "aliases": [
+      "Badam",
+      "California badaam",
+      "Almonds raw"
+    ]
+  },
+  {
+    "id": "dry-goods-nutraj-whole-cashews-raw-200g-1",
+    "name": "Whole Cashews Raw",
+    "brand": "Nutraj",
+    "category": "dry-goods",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 599,
+    "is_veg": true,
+    "aliases": [
+      "Kaju puri",
+      "Cashew nuts",
+      "Raw kaju"
+    ]
+  },
+  {
+    "id": "dry-goods-farmley-black-raisins-250g-2",
+    "name": "Black Raisins",
+    "brand": "Farmley",
+    "category": "dry-goods",
+    "pack_size": 250,
+    "pack_unit": "g",
+    "mrp": 349,
+    "is_veg": true,
+    "aliases": [
+      "Kismis",
+      "Black kishmish",
+      "Raisins"
+    ]
+  },
+  {
+    "id": "dry-goods-true-elements-walnut-kernels-200g-3",
+    "name": "Walnut Kernels",
+    "brand": "True Elements",
+    "category": "dry-goods",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 529,
+    "is_veg": true,
+    "aliases": [
+      "Akhrot giri",
+      "Walnut halves",
+      "Akhrot"
+    ]
+  },
+  {
+    "id": "dry-goods-wonderland-salted-pistachios-200g-4",
+    "name": "Salted Pistachios",
+    "brand": "Wonderland",
+    "category": "dry-goods",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 749,
+    "is_veg": true,
+    "aliases": [
+      "Pista namkeen",
+      "Salted pista",
+      "Pistachio nuts"
+    ]
+  },
+  {
+    "id": "dry-goods-tata-sampann-medjool-dates-250g-5",
+    "name": "Medjool Dates",
+    "brand": "Tata Sampann",
+    "category": "dry-goods",
+    "pack_size": 250,
+    "pack_unit": "g",
+    "mrp": 429,
+    "is_veg": true,
+    "aliases": [
+      "Medjool khajoor",
+      "Medjool dates premium",
+      "Soft dates"
+    ]
+  },
+  {
+    "id": "dry-goods-happilo-dried-anjeer-200g-6",
+    "name": "Dried Anjeer",
+    "brand": "Happilo",
+    "category": "dry-goods",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 389,
+    "is_veg": true,
+    "aliases": [
+      "Figs",
+      "Anjir",
+      "Dried figs"
+    ]
+  },
+  {
+    "id": "dry-goods-nutraj-roasted-peanuts-unsalted-200g-7",
+    "name": "Roasted Peanuts Unsalted",
+    "brand": "Nutraj",
+    "category": "dry-goods",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 219,
+    "is_veg": true,
+    "aliases": [
+      "Mungfali roasted",
+      "Groundnuts roasted",
+      "Peanuts plain"
+    ]
+  },
+  {
+    "id": "dry-goods-true-elements-white-sesame-seeds-150g-8",
+    "name": "White Sesame Seeds",
+    "brand": "True Elements",
+    "category": "dry-goods",
+    "pack_size": 150,
+    "pack_unit": "g",
+    "mrp": 149,
+    "is_veg": true,
+    "aliases": [
+      "Til safed",
+      "White til",
+      "Sesame"
+    ]
+  },
+  {
+    "id": "dry-goods-farmley-flax-seeds-200g-9",
+    "name": "Flax Seeds",
+    "brand": "Farmley",
+    "category": "dry-goods",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 189,
+    "is_veg": true,
+    "aliases": [
+      "Alsi",
+      "Alsi ke beej",
+      "Flaxseed"
+    ]
+  },
+  {
+    "id": "dry-goods-tata-sampann-chia-seeds-100g-10",
+    "name": "Chia Seeds",
+    "brand": "Tata Sampann",
+    "category": "dry-goods",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 249,
+    "is_veg": true,
+    "aliases": [
+      "Chia beej",
+      "Super seeds"
+    ]
+  },
+  {
+    "id": "dry-goods-wonderland-poppy-seeds-100g-11",
+    "name": "Poppy Seeds",
+    "brand": "Wonderland",
+    "category": "dry-goods",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 129,
+    "is_veg": true,
+    "aliases": [
+      "Khus khus",
+      "Khaskhas",
+      "Opium poppy seeds"
+    ]
+  },
+  {
+    "id": "beverages-brooke-bond-red-label-ctc-black-tea-250g-0",
+    "name": "Red Label CTC Black Tea",
+    "brand": "Brooke Bond",
+    "category": "beverages",
+    "pack_size": 250,
+    "pack_unit": "g",
+    "mrp": 249,
+    "is_veg": true,
+    "aliases": [
+      "Brooke Bond Red Label",
+      "Red Label Chai",
+      "Red Label Tea"
+    ]
+  },
+  {
+    "id": "beverages-nescafe-nescafe-classic-instant-coffee-100g-1",
+    "name": "Nescafe Classic Instant Coffee",
+    "brand": "Nescafe",
+    "category": "beverages",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 379,
+    "is_veg": true,
+    "aliases": [
+      "Nescafe Coffee",
+      "Instant Coffee",
+      "Nescafe Clasic"
+    ]
+  },
+  {
+    "id": "beverages-horlicks-horlicks-malted-drink-500g-2",
+    "name": "Horlicks Malted Drink",
+    "brand": "Horlicks",
+    "category": "beverages",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 319,
+    "is_veg": true,
+    "aliases": [
+      "Horlicks Malt",
+      "Horlicks Powder",
+      "Malted Drink"
+    ]
+  },
+  {
+    "id": "beverages-wagh-bakri-wagh-bakri-green-tea-250g-3",
+    "name": "Wagh Bakri Green Tea",
+    "brand": "Wagh Bakri",
+    "category": "beverages",
+    "pack_size": 250,
+    "pack_unit": "g",
+    "mrp": 189,
+    "is_veg": true,
+    "aliases": [
+      "Wagh Bakri Green",
+      "Green Tea",
+      "Wagh Bakri Chai"
+    ]
+  },
+  {
+    "id": "beverages-tropicana-tropicana-mango-juice-1ml-4",
+    "name": "Tropicana Mango Juice",
+    "brand": "Tropicana",
+    "category": "beverages",
+    "pack_size": 1,
+    "pack_unit": "ml",
+    "mrp": 129,
+    "is_veg": true,
+    "aliases": [
+      "Tropicana Mango",
+      "Mango Juice",
+      "Tropicana"
+    ]
+  },
+  {
+    "id": "beverages-bru-bru-instant-coffee-100g-5",
+    "name": "Bru Instant Coffee",
+    "brand": "Bru",
+    "category": "beverages",
+    "pack_size": 100,
+    "pack_unit": "g",
+    "mrp": 279,
+    "is_veg": true,
+    "aliases": [
+      "Bru Coffee",
+      "Bru Instant",
+      "Bru Powder"
+    ]
+  },
+  {
+    "id": "beverages-coca-cola-coca-cola-soft-drink-2ml-6",
+    "name": "Coca-Cola Soft Drink",
+    "brand": "Coca-Cola",
+    "category": "beverages",
+    "pack_size": 2,
+    "pack_unit": "ml",
+    "mrp": 99,
+    "is_veg": true,
+    "aliases": [
+      "Coke",
+      "Coca Cola",
+      "Cold Drink"
+    ]
+  },
+  {
+    "id": "beverages-complan-complan-chocolate-nutrition-drink-400g-7",
+    "name": "Complan Chocolate Nutrition Drink",
+    "brand": "Complan",
+    "category": "beverages",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 289,
+    "is_veg": true,
+    "aliases": [
+      "Complan",
+      "Complan Chocolate",
+      "Nutrition Drink"
+    ]
+  },
+  {
+    "id": "frozen-safal-safal-frozen-green-peas-500g-0",
+    "name": "Safal Frozen Green Peas",
+    "brand": "Safal",
+    "category": "frozen",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 89,
+    "is_veg": true,
+    "aliases": [
+      "hare matar",
+      "mutter",
+      "frozen peas"
+    ]
+  },
+  {
+    "id": "frozen-mccain-mccain-crinkle-cut-french-fries-400g-1",
+    "name": "McCain Crinkle Cut French Fries",
+    "brand": "McCain",
+    "category": "frozen",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 129,
+    "is_veg": true,
+    "aliases": [
+      "french fries",
+      "fries",
+      "chips"
+    ]
+  },
+  {
+    "id": "frozen-id-fresh-id-fresh-aloo-paratha-500g-2",
+    "name": "iD Fresh Aloo Paratha",
+    "brand": "iD Fresh",
+    "category": "frozen",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 99,
+    "is_veg": true,
+    "aliases": [
+      "aloo ke parathe",
+      "potato paratha",
+      "aloo parathas"
+    ]
+  },
+  {
+    "id": "frozen-kawan-kawan-chicken-momos-400g-3",
+    "name": "Kawan Chicken Momos",
+    "brand": "Kawan",
+    "category": "frozen",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 149,
+    "is_veg": false,
+    "aliases": [
+      "momo",
+      "chicken dumplings",
+      "steamed momos"
+    ]
+  },
+  {
+    "id": "frozen-sumeru-sumeru-frozen-mixed-vegetables-1000g-4",
+    "name": "Sumeru Frozen Mixed Vegetables",
+    "brand": "Sumeru",
+    "category": "frozen",
+    "pack_size": 1000,
+    "pack_unit": "g",
+    "mrp": 119,
+    "is_veg": true,
+    "aliases": [
+      "mixed veg",
+      "mishrit sabzi",
+      "vegetable mix"
+    ]
+  },
+  {
+    "id": "frozen-godrej-yummiez-godrej-yummiez-vegetable-spring-rolls-400g-5",
+    "name": "Godrej Yummiez Vegetable Spring Rolls",
+    "brand": "Godrej Yummiez",
+    "category": "frozen",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 139,
+    "is_veg": true,
+    "aliases": [
+      "spring rolls",
+      "vegetable rolls",
+      "rollz"
+    ]
+  },
+  {
+    "id": "frozen-id-id-potato-smileys-500g-6",
+    "name": "ID Potato Smileys",
+    "brand": "ID",
+    "category": "frozen",
+    "pack_size": 500,
+    "pack_unit": "g",
+    "mrp": 109,
+    "is_veg": true,
+    "aliases": [
+      "smileys",
+      "potato smiles",
+      "aloo smileys"
+    ]
+  },
+  {
+    "id": "frozen-itc-master-chef-itc-master-chef-vegetable-samosa-400g-7",
+    "name": "ITC Master Chef Vegetable Samosa",
+    "brand": "ITC Master Chef",
+    "category": "frozen",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 119,
+    "is_veg": true,
+    "aliases": [
+      "samosa",
+      "samose",
+      "vegetable samosas"
+    ]
+  },
+  {
+    "id": "bakery-britannia-white-bread-400g-0",
+    "name": "White Bread",
+    "brand": "Britannia",
+    "category": "bakery",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 40,
+    "is_veg": true,
+    "aliases": [
+      "white pav",
+      "safed bread",
+      "सफ़ेद ब्रेड"
+    ]
+  },
+  {
+    "id": "bakery-harvest-gold-multigrain-bread-800g-1",
+    "name": "Multigrain Bread",
+    "brand": "Harvest Gold",
+    "category": "bakery",
+    "pack_size": 800,
+    "pack_unit": "g",
+    "mrp": 85,
+    "is_veg": true,
+    "aliases": [
+      "mixed grain bread",
+      "अनाज ब्रेड",
+      "health bread"
+    ]
+  },
+  {
+    "id": "bakery-modern-burger-buns-300g-2",
+    "name": "Burger Buns",
+    "brand": "Modern",
+    "category": "bakery",
+    "pack_size": 300,
+    "pack_unit": "g",
+    "mrp": 35,
+    "is_veg": true,
+    "aliases": [
+      "burger bread",
+      "बर्गर बन्स",
+      "premium burger buns"
+    ]
+  },
+  {
+    "id": "bakery-bonn-elaichi-rusks-200g-3",
+    "name": "Elaichi Rusks",
+    "brand": "Bonn",
+    "category": "bakery",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 45,
+    "is_veg": true,
+    "aliases": [
+      "cardamom rusks",
+      "इलायची रस्क",
+      "sweet rusks"
+    ]
+  },
+  {
+    "id": "bakery-english-oven-whole-wheat-bread-400g-4",
+    "name": "Whole Wheat Bread",
+    "brand": "English Oven",
+    "category": "bakery",
+    "pack_size": 400,
+    "pack_unit": "g",
+    "mrp": 48,
+    "is_veg": true,
+    "aliases": [
+      "wheat bread",
+      "गेहूं की ब्रेड",
+      "atta bread"
+    ]
+  },
+  {
+    "id": "snacks-haldiram-s-aloo-bhujia-200g-0",
+    "name": "Aloo Bhujia",
+    "brand": "Haldiram's",
+    "category": "snacks",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 45,
+    "is_veg": true,
+    "aliases": [
+      "aaloo bhujiya",
+      "आलू भुजिया",
+      "batata namkeen"
+    ]
+  },
+  {
+    "id": "snacks-lays-lay-s-classic-salted-52g-1",
+    "name": "Lay's Classic Salted",
+    "brand": "Lays",
+    "category": "snacks",
+    "pack_size": 52,
+    "pack_unit": "g",
+    "mrp": 20,
+    "is_veg": true,
+    "aliases": [
+      "Lays Chips",
+      "chips namkeen",
+      "आलू की चिप्स"
+    ]
+  },
+  {
+    "id": "snacks-kurkure-kurkure-namkeen-90g-2",
+    "name": "Kurkure Namkeen",
+    "brand": "Kurkure",
+    "category": "snacks",
+    "pack_size": 90,
+    "pack_unit": "g",
+    "mrp": 30,
+    "is_veg": true,
+    "aliases": [
+      "Kurkure Snack",
+      "कुरकुरे",
+      "extruded snacks"
+    ]
+  },
+  {
+    "id": "snacks-parle-parle-g-gold-300g-3",
+    "name": "Parle-G Gold",
+    "brand": "Parle",
+    "category": "snacks",
+    "pack_size": 300,
+    "pack_unit": "g",
+    "mrp": 60,
+    "is_veg": true,
+    "aliases": [
+      "Parle G",
+      "Parle biscuit",
+      "पार्ले जी"
+    ]
+  },
+  {
+    "id": "snacks-good-day-good-day-almond-cookies-200g-4",
+    "name": "Good Day Almond Cookies",
+    "brand": "Good Day",
+    "category": "snacks",
+    "pack_size": 200,
+    "pack_unit": "g",
+    "mrp": 75,
+    "is_veg": true,
+    "aliases": [
+      "Good Day Cookie",
+      "almond biscuit",
+      "गुड डे"
+    ]
   }
 ]
