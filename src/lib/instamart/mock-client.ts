@@ -4,6 +4,34 @@ import type { InstamartClient } from "./client";
 
 const CATALOG: Sku[] = (catalogData as unknown[]).map((entry) => skuSchema.parse(entry));
 
+// Pre-compute a normalized token set per SKU so search doesn't redo the work.
+const SKU_TOKENS = new WeakMap<Sku, Set<string>>();
+
+function tokenize(text: string): string[] {
+  return (
+    text
+      .toLowerCase()
+      // British → US spelling we see in recipes
+      .replace(/chilli(es)?/g, "chili")
+      .replace(/pulses/g, "pulse")
+      // Strip punctuation (commas, parens, slashes, etc.)
+      .replace(/[^a-z0-9\s]/g, " ")
+      .split(/\s+/)
+      .filter((w) => w.length > 1)
+      // Crude singularization: drop trailing 's' on 4+ char words (tomatoes → tomatoe? close enough for set membership)
+      .map((w) => (w.endsWith("s") && w.length > 3 ? w.slice(0, -1) : w))
+  );
+}
+
+function skuTokenSet(sku: Sku): Set<string> {
+  let cached = SKU_TOKENS.get(sku);
+  if (cached) return cached;
+  const text = [sku.name, sku.brand, ...sku.aliases].join(" ");
+  cached = new Set(tokenize(text));
+  SKU_TOKENS.set(sku, cached);
+  return cached;
+}
+
 /**
  * MockInstamartClient — reads from catalog.json.
  *
@@ -14,17 +42,23 @@ const CATALOG: Sku[] = (catalogData as unknown[]).map((entry) => skuSchema.parse
 export class MockInstamartClient implements InstamartClient {
   async searchProducts(query: string, opts?: { limit?: number }): Promise<Sku[]> {
     const limit = opts?.limit ?? 10;
-    const q = query.trim().toLowerCase();
-    if (!q) return CATALOG.slice(0, limit);
+    const qTokens = tokenize(query);
+    if (qTokens.length === 0) return CATALOG.slice(0, limit);
 
-    const matches = CATALOG.filter((sku) => {
-      if (sku.name.toLowerCase().includes(q)) return true;
-      if (sku.brand.toLowerCase().includes(q)) return true;
-      if (sku.aliases.some((a) => a.toLowerCase().includes(q))) return true;
-      return false;
-    });
+    // Rank SKUs by how many query tokens appear as whole words in the SKU text.
+    // Word-boundary matching prevents "salt" from matching "salted pistachios".
+    const scored: { sku: Sku; score: number }[] = [];
+    for (const sku of CATALOG) {
+      const skuTokens = skuTokenSet(sku);
+      let score = 0;
+      for (const t of qTokens) {
+        if (skuTokens.has(t)) score++;
+      }
+      if (score > 0) scored.push({ sku, score });
+    }
 
-    return matches.slice(0, limit);
+    scored.sort((a, b) => b.score - a.score);
+    return scored.slice(0, limit).map((s) => s.sku);
   }
 
   async getProduct(skuId: string): Promise<Sku | null> {
