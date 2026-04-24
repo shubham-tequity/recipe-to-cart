@@ -150,6 +150,21 @@ vercel
 
 That's it. Set `AI_GATEWAY_API_KEY` in the Vercel project settings and the preview URL works end-to-end.
 
+## Swiggy MCP integration (pending access)
+
+The app is built around a swappable `InstamartClient` — the mock is active today. Once MCP access lands, a `SwiggyMcpInstamartClient` implements the same three methods against Swiggy's MCP tools.
+
+**Declared on the Builders Club application:**
+
+| Field | Value |
+|---|---|
+| MCP server requested | Swiggy Instamart |
+| Redirect URI | `https://recipe-to-cart-alpha.vercel.app/api/swiggy/callback` |
+| Expected volume | < 1K requests/day |
+| Integration type | Web App |
+
+If Swiggy provisions OAuth, the callback route **must live at exactly that path**. When access is granted, build it at `src/app/api/swiggy/callback/route.ts` — don't change the URL.
+
 ---
 
 Built by [Shubham Tequity](https://tequity.tech) for [Swiggy Builders Club](https://mcp.swiggy.com/builders/).

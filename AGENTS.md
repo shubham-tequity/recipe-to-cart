@@ -243,4 +243,17 @@ npm exec -- shadcn add <component>   # e.g. dialog, tooltip, select
 - [ ] `SwiggyMcpInstamartClient` implemented
 - [ ] Production catalog live (mock removed)
 
+### Commitments made on the Builders Club form
+
+These are locked in with Swiggy — don't change them without updating the form:
+
+| Field | Value |
+|---|---|
+| MCP server requested | Swiggy Instamart |
+| Integration type | Web App |
+| **Redirect URI** | `https://recipe-to-cart-alpha.vercel.app/api/swiggy/callback` |
+| Expected volume | `< 1K/day` |
+
+When MCP access is granted, implement the OAuth callback at exactly `src/app/api/swiggy/callback/route.ts` — the URI above was declared on the application and must match.
+
 Update this list as milestones land. Single source of truth for where we are with Swiggy.
