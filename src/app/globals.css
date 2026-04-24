@@ -146,9 +146,9 @@
   --color-brand-tequity-navy: var(--brand-tequity-navy);
   --color-brand-tequity-surface: var(--brand-tequity-surface);
 
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+  --font-heading: var(--font-inter);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -165,14 +165,19 @@
   }
 
   html {
-    @apply font-sans;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
 
   html,
   body {
     background: var(--background);
     color: var(--foreground);
-    font-feature-settings: "rlig" 1, "calt" 1;
+    /* Inter feature settings: cv11 = alternate single-storey 'a', ss01 = alt 'g',
+       ss03 = alternate '1', cv02/cv03/cv04 = stylistic tuning. */
+    font-feature-settings: "cv11", "ss01", "ss03", "cv02", "cv03", "cv04";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
@@ -183,8 +188,53 @@
     background-attachment: fixed;
   }
 
+  h1, h2, h3, h4 {
+    font-feature-settings: "cv11", "ss01", "ss03";
+    letter-spacing: -0.022em;
+  }
+
+  h1 {
+    letter-spacing: -0.04em;
+  }
+
   ::selection {
     background: var(--primary);
     color: var(--primary-foreground);
+  }
+}
+
+@layer components {
+  /* Primary CTA — solid orange with gradient, inner highlight, soft glow.
+     Defined as a component class so Tailwind's preflight reset can't clobber
+     the `button { background: transparent }` reset. */
+  .cta-primary {
+    background-color: #fc8019;
+    background-image: linear-gradient(180deg, #ff8a2b 0%, #fc8019 55%, #e46a2c 100%);
+    color: #0b0f1a;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      0 0 0 1px rgba(252, 128, 25, 0.35),
+      0 10px 28px -8px rgba(252, 128, 25, 0.55);
+    transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+  }
+  .cta-primary:hover:not(:disabled) {
+    filter: brightness(1.05);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      0 0 0 1px rgba(252, 128, 25, 0.5),
+      0 14px 40px -6px rgba(252, 128, 25, 0.7);
+    transform: translateY(-1px);
+  }
+  .cta-primary:active:not(:disabled) {
+    transform: translateY(0);
+  }
+  .cta-primary:disabled {
+    background-color: rgba(252, 128, 25, 0.55);
+    background-image: linear-gradient(180deg, rgba(255, 138, 43, 0.55) 0%, rgba(252, 128, 25, 0.55) 55%, rgba(228, 106, 44, 0.55) 100%);
+    color: rgba(11, 15, 26, 0.85);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 0 0 1px rgba(252, 128, 25, 0.2);
+    cursor: not-allowed;
   }
 }

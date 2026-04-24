@@ -18,8 +18,14 @@ function tokenize(text: string): string[] {
       .replace(/[^a-z0-9\s]/g, " ")
       .split(/\s+/)
       .filter((w) => w.length > 1)
-      // Crude singularization: drop trailing 's' on 4+ char words (tomatoes → tomatoe? close enough for set membership)
-      .map((w) => (w.endsWith("s") && w.length > 3 ? w.slice(0, -1) : w))
+      // Crude singularization: strip common plural endings.
+      // "tomatoes" → "tomato", "onions" → "onion", "leaves" → "leave".
+      .map((w) => {
+        if (w.endsWith("ies") && w.length > 4) return w.slice(0, -3) + "y";
+        if (w.endsWith("es") && w.length > 3) return w.slice(0, -2);
+        if (w.endsWith("s") && w.length > 3) return w.slice(0, -1);
+        return w;
+      })
   );
 }
 
@@ -66,14 +72,21 @@ export class MockInstamartClient implements InstamartClient {
   }
 
   async buildCart(items: CartItem[]): Promise<Cart> {
+    // Merge duplicate sku_ids first — two recipe ingredients can resolve to
+    // the same SKU (e.g. "onion" + "small onion"), and the cart should show
+    // one row with a summed quantity, not two.
+    const merged = new Map<string, number>();
+    for (const item of items) {
+      merged.set(item.sku_id, (merged.get(item.sku_id) ?? 0) + item.quantity);
+    }
+
     let subtotal = 0;
     const validated: CartItem[] = [];
-
-    for (const item of items) {
-      const sku = CATALOG.find((s) => s.id === item.sku_id);
+    for (const [sku_id, quantity] of merged) {
+      const sku = CATALOG.find((s) => s.id === sku_id);
       if (!sku) continue;
-      subtotal += sku.mrp * item.quantity;
-      validated.push(item);
+      subtotal += sku.mrp * quantity;
+      validated.push({ sku_id, quantity });
     }
 
     return cartSchema.parse({ items: validated, subtotal });

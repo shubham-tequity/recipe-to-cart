@@ -93,7 +93,20 @@ function resolveQuantity(
   sku: Sku
 ): { qty: number; confidence: MatchConfidence; note?: string } {
   if (ing.quantity == null || ing.unit === "to_taste") {
-    return { qty: 1, confidence: "medium", note: "To-taste item; defaulting to 1 pack." };
+    return { qty: 1, confidence: "medium", note: "To-taste item; 1 pack is enough." };
+  }
+
+  // Piece/handful/pinch against a gram/ml SKU almost never needs multiple packs.
+  // The "100g per piece" heuristic blows up small leaf/spice items into absurd
+  // pack counts (5 basil leaves → 25 packs of bay leaves). Default to one pack
+  // and let the user override if they need more.
+  const smallCountUnit =
+    ing.unit === "piece" ||
+    ing.unit === "whole" ||
+    ing.unit === "handful" ||
+    ing.unit === "pinch";
+  if (smallCountUnit && (sku.pack_unit === "g" || sku.pack_unit === "ml")) {
+    return { qty: 1, confidence: "medium", note: "Small-count item; 1 pack is enough." };
   }
 
   const needed = convertToBase(ing.quantity, ing.unit);
@@ -102,15 +115,25 @@ function resolveQuantity(
   }
 
   if (sku.pack_unit === "piece" || sku.pack_unit === "bunch" || sku.pack_unit === "dozen") {
-    // Piece-based SKUs don't convert cleanly from g/ml; treat quantity as piece count when available.
     if (ing.unit === "piece" || ing.unit === "whole") {
       return { qty: Math.max(1, Math.ceil(ing.quantity)), confidence: "high" };
     }
     return { qty: 1, confidence: "medium", note: "Piece-based SKU; adding 1." };
   }
 
-  // sku.pack_unit is 'g' or 'ml' — do pack-size rounding.
+  // sku.pack_unit is 'g' or 'ml' — pack-size rounding.
   const units = Math.max(1, Math.ceil(needed / sku.pack_size));
+
+  // Sanity cap: more than 5 packs almost always means the match is semantic-mismatched
+  // or the unit conversion is wrong (e.g. recipe asked for 2 tsp, not 2 cups). Cap at 2.
+  if (units > 5) {
+    return {
+      qty: 2,
+      confidence: "low",
+      note: `Conversion yielded ${units} packs — capped at 2 to avoid over-ordering.`,
+    };
+  }
+
   return { qty: units, confidence: "high" };
 }
 
