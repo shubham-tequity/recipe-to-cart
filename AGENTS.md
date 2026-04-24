@@ -237,8 +237,8 @@ npm exec -- shadcn add <component>   # e.g. dialog, tooltip, select
 
 ## Submission status (live state)
 
-- [ ] Google Form submitted to Swiggy Builders Club (Developer track)
-- [ ] Follow-up email sent to `builders@swiggy.in`
+- [x] Google Form submitted to Swiggy Builders Club (Developer track)
+- [x] Follow-up email sent to `builders@swiggy.in`
 - [ ] MCP access granted
 - [ ] `SwiggyMcpInstamartClient` implemented
 - [ ] Production catalog live (mock removed)
